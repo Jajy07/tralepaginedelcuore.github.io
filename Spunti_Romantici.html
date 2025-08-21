@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spunti Romantici - Blog Rosa Confetto</title>
+    <style>
+        /* Font */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@400;700&display=swap');
+        
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Base Styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #4a4a4a;
+            background-color: #fff5f7;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #ffbae6 0%, #ffd1e8 100%);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(255, 192, 203, 0.3);
+        }
+        
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #e83e8c;
+            text-align: center;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tagline {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            text-align: center;
+            font-size: 1rem;
+            color: #e83e8c;
+            margin-bottom: 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #ffffff;
+            padding: 15px 0;
+            margin-top: 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 6px rgba(232, 62, 140, 0.1);
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links li {
+            margin: 0 15px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #e83e8c;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 5px 10px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            background-color: #ffcce0;
+            color: #ffffff;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+        
+        .page-header {
+            text-align: center;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(232, 62, 140, 0.1);
+        }
+        
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            color: #e83e8c;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .page-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+        
+        /* Sections */
+        .section {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(232, 62, 140, 0.1);
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #e83e8c;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ffcce0;
+        }
+        
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #e83e8c;
+            font-size: 1.3rem;
+            margin: 20px 0 15px;
+        }
+        
+        /* Letter Cards */
+        .letter-card {
+            background: linear-gradient(135deg, #fff5f7 0%, #ffcce0 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 6px 15px rgba(232, 62, 140, 0.15);
+            position: relative;
+            border-left: 5px solid #e83e8c;
+        }
+        
+        .letter-card.moderator {
+            background: linear-gradient(135deg, #ffd1e8 0%, #ffbae6 100%);
+            border-left-color: #d33076;
+        }
+        
+        .letter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .letter-author {
+            font-weight: 600;
+            color: #e83e8c;
+            font-size: 1.1rem;
+        }
+        
+        .letter-author.moderator::after {
+            content: "👑";
+            margin-left: 8px;
+        }
+        
+        .letter-date {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .letter-content {
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .letter-signature {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #e83e8c;
+            font-weight: 500;
+        }
+        
+        /* Advice Cards */
+        .advice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .advice-card {
+            background: linear-gradient(145deg, #ffffff 0%, #fff5f7 100%);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 12px rgba(232, 62, 140, 0.12);
+            transition: transform 0.3s ease;
+        }
+        
+        .advice-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .advice-icon {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .advice-title {
+            color: #e83e8c;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .advice-content {
+            text-align: center;
+            font-style: italic;
+        }
+        
+        /* Interactive Form */
+        .submit-form {
+            background: linear-gradient(135deg, #ffcce0 0%, #ffd1e8 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            box-shadow: 0 6px 15px rgba(232, 62, 140, 0.15);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #e83e8c;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid rgba(232, 62, 140, 0.3);
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #e83e8c;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #e83e8c 0%, #d33076 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: block;
+            margin: 20px auto 0;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Quote */
+        .quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: #e83e8c;
+            text-align: center;
+            padding: 30px;
+            background-color: #fff5f7;
+            border-radius: 12px;
+            margin: 40px 0;
+            box-shadow: 0 4px 8px rgba(232, 62, 140, 0.1);
+        }
+        
+        /* Special Message Box */
+        .special-message {
+            background: linear-gradient(135deg, #ffbae6 0%, #ffd1e8 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(232, 62, 140, 0.15);
+        }
+        
+        .special-message h4 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #e83e8c;
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #ffbae6 0%, #ffd1e8 100%);
+            padding: 40px 0;
+            color: #e83e8c;
+            text-align: center;
+            box-shadow: 0 -4px 12px rgba(255, 192, 203, 0.3);
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-column h4 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .footer-column p, .footer-column a {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        
+        .footer-column a {
+            color: #e83e8c;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: block;
+        }
+        
+        .footer-column a:hover {
+            color: #ffffff;
+        }
+        
+        .newsletter input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            outline: none;
+        }
+        
+        .newsletter button {
+            background-color: #e83e8c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        
+        .newsletter button:hover {
+            background-color: #d33076;
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .advice-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .letter-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links li {
+                margin: 5px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Tra le Pagine del Cuore</h1>
+            <p class="tagline">Un angolo dolce dove le emozioni prendono vita</p>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="Tra_Le_Pagine_Del_Cuore.html">Home</a></li>
+                    <li><a href="Storie_Del_Cuore.html">Storie del Cuore</a></li>
+                    <li><a href="Poesia_D'anima.html">Poesia d'Anima</a></li>
+                    <li><a href="Spunti_Romantici.html" class="active">Spunti Romantici</a></li>
+                    <li><a href="Emozioni_In_Cucina.html">Emozioni in Cucina</a></li>
+                    <li><a href="Tra_Le_Pagine_Del_Cuore.html">Contatti</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="page-header">
+            <h1>🎀 Spunti Romantici 🎀</h1>
+            <p>Benvenuti nel nostro spazio del cuore, dove ogni gesto d'amore trova la sua voce. Qui condividiamo insieme idee romantiche, lettere d'amore e tutti quei piccoli segreti che rendono speciali i nostri rapporti. Perché l'amore si nutre di attenzioni, si alimenta di sorprese e cresce con la condivisione.</p>
+        </section>
+
+        <div class="special-message">
+            <h4>Messaggio dal cuore della moderatrice</h4>
+            <p>Cari lettori del cuore, questo spazio è vostro quanto mio. Qui non ci sono giudizi, solo comprensione e sostegno. Condividete le vostre storie, i vostri consigli, le vostre lettere d'amore più belle. Insieme creeremo un piccolo tesoro di romanticismo che possa ispirare chiunque stia cercando di rendere più dolce la propria vita sentimentale. ✨</p>
+        </div>
+
+        <section class="section">
+            <h2>💌 Consigli romantici della settimana</h2>
+            
+            <div class="advice-grid">
+                <div class="advice-card">
+                    <div class="advice-icon">🌹</div>
+                    <h4 class="advice-title">Il gesto inaspettato</h4>
+                    <p class="advice-content">Lascia un bigliettino dolce nel portafoglio del tuo partner. Quando lo troverà durante una giornata normale, sarà come ricevere un abbraccio a distanza.</p>
+                </div>
+                
+                <div class="advice-card">
+                    <div class="advice-icon">☕</div>
+                    <h4 class="advice-title">Il risveglio perfetto</h4>
+                    <p class="advice-content">Prepara il caffè della domenica mattina con una decorazione nella schiuma. Anche un cuore semplice può trasformare un momento ordinario in speciale.</p>
+                </div>
+                
+                <div class="advice-card">
+                    <div class="advice-icon">🎵</div>
+                    <h4 class="advice-title">La playlist dell'amore</h4>
+                    <p class="advice-content">Crea una playlist con tutte le canzoni che vi ricordano i momenti belli insieme. Regalala nel vostro anniversario mensile.</p>
+                </div>
+                
+                <div class="advice-card">
+                    <div class="advice-icon">📸</div>
+                    <h4 class="advice-title">I ricordi visivi</h4>
+                    <p class="advice-content">Tieni sempre pronta la fotocamera (o il telefono) per catturare i sorrisi spontanei. Le foto più belle sono quelle non in posa.</p>
+                </div>
+                
+                <div class="advice-card">
+                    <div class="advice-icon">🕯️</div>
+                    <h4 class="advice-title">L'atmosfera giusta</h4>
+                    <p class="advice-content">Una cena romantica non serve per forza un ristorante costoso. Candele, luci soffuse e il piatto preferito del partner bastano.</p>
+                </div>
+                
+                <div class="advice-card">
+                    <div class="advice-icon">💫</div>
+                    <h4 class="advice-title">Le stelle come complici</h4>
+                    <p class="advice-content">Organizza una serata sotto le stelle. Portate coperte, thermos con cioccolata calda e raccontatevi i vostri sogni.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="quote">
+            "L'amore non è trovare qualcuno con cui poter vivere, è trovare qualcuno senza cui non si può vivere."
+        </div>
+
+        <section class="section">
+            <h2>💕 Lettere e dichiarazioni dal cuore</h2>
+            
+            <div class="letter-card moderator">
+                <div class="letter-header">
+                    <span class="letter-author moderator">La vostra moderatrice</span>
+                    <span class="letter-date">20 agosto 2025</span>
+                </div>
+                <div class="letter-content">
+                    Cari amori del blog, oggi voglio condividere con voi una riflessione che mi è nata spontanea stamattina davanti alla prima tazza di caffè. L'amore vero non è quello delle favole, non è perfetto e senza ostacoli. L'amore vero è quello che ti fa sorridere anche quando hai avuto una giornata storta, è quello che ti fa sentire a casa anche in mezzo al caos. È nelle piccole attenzioni quotidiane, negli sguardi complici, nelle risate condivise. Non cercate l'amore perfetto, cercate l'amore autentico. Quello che vi fa essere la versione migliore di voi stessi.
+                </div>
+                <div class="letter-signature">Con tutto il mio affetto ❤️</div>
+            </div>
+            
+            <div class="letter-card">
+                <div class="letter-header">
+                    <span class="letter-author">Sofia di Milano</span>
+                    <span class="letter-date">18 agosto 2025</span>
+                </div>
+                <div class="letter-content">
+                    Volevo ringraziare questo blog meraviglioso! Seguendo i vostri consigli, ieri sera ho organizzato una cena a sorpresa per il mio fidanzato Marco. Ho cucinato i suoi tortellini preferiti, ho acceso delle candeline e ho messo la nostra canzone di sottofondo. Quando è arrivato a casa ed ha visto tutto, si è commosso! Mi ha detto che nessuno aveva mai fatto qualcosa di così dolce per lui. Grazie per avermi ricordato che l'amore si dimostra anche nei gesti semplici.
+                </div>
+                <div class="letter-signature">Con riconoscenza, Sofia 💕</div>
+            </div>
+            
+            <div class="letter-card">
+                <div class="letter-header">
+                    <span class="letter-author">Alessandro di Roma</span>
+                    <span class="letter-date">15 agosto 2025</span>
+                </div>
+                <div class="letter-content">
+                    Cara moderatrice, scrivo per condividere una piccola storia che spero possa ispirare altri lettori. Io e mia moglie Giulia siamo sposati da 15 anni, e confesso che a volte la routine aveva preso il sopravvento. Poi ho iniziato a seguire questo blog e ho capito che l'amore ha bisogno di essere nutrito ogni giorno. Ora ogni mattina lascio un bigliettino diverso nella sua borsa. A volte scrivo "Buona giornata amore mio", a volte solo "Ti amo". Lei dice che questi piccoli messaggi le illuminano la giornata. Chi l'avrebbe mai detto che bastasse così poco per ritrovare la magia?
+                </div>
+                <div class="letter-signature">Un marito innamorato, Alessandro 🌹</div>
+            </div>
+            
+            <div class="letter-card moderator">
+                <div class="letter-header">
+                    <span class="letter-author moderator">Risposta della moderatrice</span>
+                    <span class="letter-date">16 agosto 2025</span>
+                </div>
+                <div class="letter-content">
+                    Caro Alessandro, la tua storia mi ha scaldato il cuore! È proprio vero che l'amore ha bisogno di essere curato ogni giorno, come un fiore che va annaffiato con attenzione e costanza. I tuoi bigliettini per Giulia sono la dimostrazione che non servono grandi gesti per dire "ti amo": a volte bastano piccole parole scritte con il cuore. Grazie per aver condiviso con noi questo esempio bellissimo di come si possa ravvivare la fiamma anche dopo anni di matrimonio. Un abbraccio a te e alla tua dolce Giulia! 💕
+                </div>
+                <div class="letter-signature">Con affetto, la vostra moderatrice ✨</div>
+            </div>
+            
+            <div class="letter-card">
+                <div class="letter-header">
+                    <span class="letter-author">Emma di Torino</span>
+                    <span class="letter-date">12 agosto 2025</span>
+                </div>
+                <div class="letter-content">
+                    Voglio condividere con voi la dichiarazione d'amore più bella che abbia mai ricevuto. Non è stata fatta con parole elaborate o in luoghi romantici. È successo una domenica mattina, stavamo facendo colazione e io ero ancora in pigiama con i capelli spettinati. Luca mi ha guardato e mi ha detto: "Sai che ti amo anche così, anzi soprattutto così? Quando sei naturale, quando non ti nascondi dietro nessuna maschera. Ti amo per come sei quando pensi che nessuno ti stia guardando." In quel momento ho capito cosa significhi essere amata davvero. ❤️
+                </div>
+                <div class="letter-signature">Emma, una ragazza innamorata 🥰</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>📝 Condividi il tuo spunto romantico</h2>
+            <p>Hai un consiglio d'amore da condividere? Una lettera dolce da far leggere? Una dichiarazione che ti ha emozionato? Questo spazio è anche tuo! Ogni contributo verrà letto con cura e, se condiviso, aiuterà altri cuori in cerca di ispirazione.</p>
+            
+            <div class="submit-form">
+                <form id="romanticForm">
+                    <div class="form-group">
+                        <label for="submissionType">Cosa vuoi condividere?</label>
+                        <select id="submissionType" name="submissionType" required>
+                            <option value="">Scegli...</option>
+                            <option value="consiglio">💡 Un consiglio romantico</option>
+                            <option value="lettera">💌 Una lettera d'amore</option>
+                            <option value="dichiarazione">💕 Una dichiarazione ricevuta/fatta</option>
+                            <option value="storia">📖 Una storia romantica</option>
+                            <option value="idea">💭 Un'idea per sorprendere</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="authorName">Il tuo nome (o pseudonimo)</label>
+                        <input type="text" id="authorName" name="authorName" placeholder="Come vuoi essere chiamato/a?" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="authorLocation">La tua città (opzionale)</label>
+                        <input type="text" id="authorLocation" name="authorLocation" placeholder="Es: Milano, Roma...">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="content">Il tuo messaggio ❤️</label>
+                        <textarea id="content" name="content" placeholder="Scrivi qui il tuo spunto romantico, la tua lettera o la tua storia... Ricorda che ogni parola scritta con il cuore può toccare l'anima di qualcuno!" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signature">Firma finale (opzionale)</label>
+                        <input type="text" id="signature" name="signature" placeholder="Es: Con amore, Un cuore innamorato, Una sognatrice...">
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">💕 Condividi dal cuore</button>
+                </form>
+            </div>
+            
+            <div class="special-message">
+                <h4>Una promessa dal cuore</h4>
+                <p>Ogni messaggio che condividerete sarà letto personalmente da me con tutta la delicatezza che merita. I contributi più belli e significativi verranno pubblicati nella sezione "Lettere dal cuore" per ispirare e scaldare il cuore di tutti i nostri lettori. Ricordate: non esistono storie d'amore sbagliate, esistono solo cuori che hanno il coraggio di amare. 💕</p>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Resta in contatto</h4>
+                <p>Condividi i tuoi momenti romantici con noi!</p>
+                <a href="#">📱 Instagram: @TraLePagineDelCuore</a>
+                <a href="#">📱 Facebook: @TraLePagineDelCuore</a>
+                <a href="#">📱 Pinterest: @TraLePagineDelCuore</a>
+            </div>
+            <div class="footer-column">
+                <h4>Sezioni</h4>
+                <a href="Tra_Le_Pagine_Del_Cuore.html">Home</a>
+                <a href="Storie_Del_Cuore.html">Storie del Cuore</a>
+                <a href="Poesia_D'anima.html">Poesia d'Anima</a>
+                <a href="Spunti_Romantici.html">Spunti Romantici</a>
+                <a href="Emozioni_In_Cucina.html">Emozioni in Cucina</a>
+                <a href="Contatti.html">Contatti</a>
+            </div>
+            <div class="footer-column newsletter">
+                <h4>Newsletter del Cuore</h4>
+                <p>Ricevi ogni settimana i consigli romantici più dolci direttamente nella tua casella di posta!</p>
+                <input type="email" placeholder="La tua email">
+                <button>Iscriviti</button>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Con tutto l'amore del mondo, La redazione di Tra le Pagine del Cuore</p>
+            <p>&copy; 2025 Tra le Pagine del Cuore. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handling
+        document.getElementById('romanticForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const submissionType = formData.get('submissionType');
+            const authorName = formData.get('authorName');
+            const content = formData.get('content');
+            
+            // Show confirmation message
+            alert(`💕 Grazie ${authorName}! Il tuo ${submissionType} è stato inviato con successo. Lo leggerò con tutto il cuore e, se sarà pubblicato, riceverai una notifica speciale! 🌹`);
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add floating hearts animation on letter cards hover
+            const letterCards = document.querySelectorAll('.letter-card');
+            letterCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Form validation enhancement
+            const contentTextarea = document.getElementById('content');
+            contentTextarea.addEventListener('input', function() {
+                const wordCount = this.value.trim().split(/\s+/).length;
+                if (wordCount > 0) {
+                    if (wordCount < 10) {
+                        this.style.borderColor = '#ffc107';
+                    } else {
+                        this.style.borderColor = '#28a745';
+                    }
+                }
+            });
+        });

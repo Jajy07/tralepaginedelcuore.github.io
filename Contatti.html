@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti - Tra le Pagine del Cuore</title>
+    <style>
+        /* Font */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@400;700&display=swap');
+        
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Base Styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #4a4a4a;
+            background-color: #fff5f7;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #ffbae6 0%, #ffd1e8 100%);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(255, 192, 203, 0.3);
+        }
+        
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #e83e8c;
+            text-align: center;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tagline {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            text-align: center;
+            font-size: 1rem;
+            color: #e83e8c;
+            margin-bottom: 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #ffffff;
+            padding: 15px 0;
+            margin-top: 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 6px rgba(232, 62, 140, 0.1);
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links li {
+            margin: 0 15px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #e83e8c;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 5px 10px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            background-color: #ffcce0;
+            color: #ffffff;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+        
+        .section {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(232, 62, 140, 0.1);
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #e83e8c;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ffcce0;
+        }
+        
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #e83e8c;
+            font-size: 1.3rem;
+            margin: 20px 0 15px;
+        }
+        
+        /* Moderator Profile */
+        .moderator-profile {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 30px;
+            align-items: start;
+            margin-bottom: 30px;
+        }
+        
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffcce0 0%, #e83e8c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            box-shadow: 0 8px 20px rgba(232, 62, 140, 0.3);
+        }
+        
+        .profile-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        .profile-title {
+            font-style: italic;
+            color: #e83e8c;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        .profile-description {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        /* Contact Methods */
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .contact-card {
+            background-color: #fff5f7;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(232, 62, 140, 0.1);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .contact-card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .contact-link {
+            color: #e83e8c;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: block;
+            margin: 10px 0;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-link:hover {
+            color: #d33076;
+            text-decoration: underline;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            background-color: #fff5f7;
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #e83e8c;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ffcce0;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #e83e8c;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #e83e8c 0%, #d33076 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: block;
+            margin: 30px auto 0;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Response Times */
+        .response-info {
+            background-color: #fff5f7;
+            border-left: 4px solid #e83e8c;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .response-info h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        
+        .response-info ul {
+            list-style: none;
+        }
+        
+        .response-info li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .response-info li::before {
+            content: "💌";
+            position: absolute;
+            left: 0;
+        }
+        
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #fff5f7;
+            border-radius: 8px;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            color: #e83e8c;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .faq-answer {
+            color: #666;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #ffbae6 0%, #ffd1e8 100%);
+            padding: 40px 0;
+            color: #e83e8c;
+            text-align: center;
+            box-shadow: 0 -4px 12px rgba(255, 192, 203, 0.3);
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+        }
+        
+        .copyright {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .moderator-profile {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .profile-image {
+                margin: 0 auto;
+            }
+            
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links li {
+                margin: 5px 10px;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Tra le Pagine del Cuore</h1>
+            <p class="tagline">Un angolo dolce dove le emozioni prendono vita</p>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="Tra_Le_Pagine_Del_Cuore.html">Home</a></li>
+                    <li><a href="Storie_Del_Cuore.html">Storie del Cuore</a></li>
+                    <li><a href="Poesia_D'anima.html">Poesia d'Anima</a></li>
+                    <li><a href="Spunti_Romantici.html">Spunti Romantici</a></li>
+                    <li><a href="Emozioni_In_Cucina.html">Emozioni in Cucina</a></li>
+                    <li><a href="Contatti.html" class="active">Contatti</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="section">
+            <h2>Incontra la nostra moderatrice</h2>
+            <div class="moderator-profile">
+                <div class="profile-image">
+                    💕
+                </div>
+                <div class="profile-info">
+                    <h3>Jasmine Satta</h3>
+                    <p class="profile-title">Fondatrice e cuore pulsante del blog</p>
+                    <div class="profile-description">
+                        <p>Ciao dolci anime! Sono Jasmine, una sognatrice incallita con una passione smodata per tutto ciò che sa di romantico. Ho fondato questo blog perché credo che l'amore, in tutte le sue forme, sia il linguaggio più bello del mondo.</p>
+                        
+                        <p>Quando non sto scrivendo articoli per voi, mi trovate con un libro in mano, una tazza di tè alla rosa e il cuore sempre aperto a nuove emozioni. Adoro ascoltare le vostre storie e condividere insieme questo viaggio fatto di parole che scaldano l'anima.</p>
+                        
+                        <p>La mia missione? Creare uno spazio sicuro dove ogni sentimento trova casa, dove ogni cuore può sentirsi compreso. Perché tutti meritiamo di vivere la propria storia d'amore, quella con gli altri e soprattutto quella con noi stessi. ✨</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Mettiti in contatto con noi</h2>
+            <div class="contact-methods">
+                <div class="contact-card">
+                    <span class="contact-icon">📧</span>
+                    <h3>Email</h3>
+                    <p>Per collaborazioni, suggerimenti o semplicemente per condividere la tua storia</p>
+                    <a href="mailto:tralepaginedelcuore@gmail.com" class="contact-link">tralepaginedelcuore@gmail.com</a>
+                    <a href="mailto:sattajasmine@gmail.com" class="contact-link">sattajasmine@gmail.com</a>
+                </div>
+                
+                <div class="contact-card">
+                    <span class="contact-icon">📱</span>
+                    <h3>Social Media</h3>
+                    <p>Seguici per aggiornamenti quotidiani e contenuti esclusivi</p>
+                    <a href="https://instagram.com/tralepaginedelcuore" class="contact-link">@TraLePagineDelCuore</a>
+                    <a href="https://facebook.com/tralepaginedelcuore" class="contact-link">Facebook</a>
+                    <a href="https://pinterest.com/tralepaginedelcuore" class="contact-link">Pinterest</a>
+                </div>
+                
+                <div class="contact-card">
+                    <span class="contact-icon">💌</span>
+                    <h3>Newsletter</h3>
+                    <p>Ricevi i nostri articoli direttamente nel cuore... e nella tua email!</p>
+                    <a href="mailto:newsletter@tralepaginedelcuore.it?subject=Iscrizione Newsletter" class="contact-link">Iscriviti qui</a>
+                </div>
+                
+                <div class="contact-card">
+                    <span class="contact-icon">✍️</span>
+                    <h3>Collaborazioni</h3>
+                    <p>Vuoi scrivere con noi? Raccontaci la tua idea!</p>
+                    <a href="mailto:collaborazioni@tralepaginedelcuore.it" class="contact-link">collaborazioni@tralepaginedelcuore.it</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Scrivici dal cuore</h2>
+            <div class="contact-form">
+                <form id="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nome">Il tuo nome *</label>
+                            <input type="text" id="nome" name="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">La tua email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="argomento">Argomento</label>
+                        <select id="argomento" name="argomento">
+                            <option value="">Seleziona un argomento</option>
+                            <option value="collaborazione">Proposta di collaborazione</option>
+                            <option value="storia">Voglio condividere la mia storia</option>
+                            <option value="suggerimento">Suggerimento per il blog</option>
+                            <option value="feedback">Feedback su un articolo</option>
+                            <option value="supporto">Supporto tecnico</option>
+                            <option value="altro">Altro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="messaggio">Il tuo messaggio *</label>
+                        <textarea id="messaggio" name="messaggio" placeholder="Raccontaci cosa hai nel cuore..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Invia il tuo messaggio 💕</button>
+                </form>
+            </div>
+            
+            <div class="response-info">
+                <h3>Tempi di risposta</h3>
+                <ul>
+                    <li><strong>Email generali:</strong> 24-48 ore lavorative</li>
+                    <li><strong>Collaborazioni:</strong> 3-5 giorni lavorativi</li>
+                    <li><strong>Supporto tecnico:</strong> 24 ore</li>
+                    <li><strong>Storie del cuore:</strong> Con tutto l'amore del mondo, nel minor tempo possibile ❤️</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Domande frequenti</h2>
+            <div class="faq-item">
+                <div class="faq-question">🌸 Posso inviare la mia storia d'amore per pubblicarla sul blog?</div>
+                <div class="faq-answer">Assolutamente sì! Adoriamo le storie vere e autentiche. Scrivici a Jasmine@tralepaginedelcuore.it con la tua storia e saremo felici di valutarla per la pubblicazione.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">💝 Collaborate con altri blogger o scrittori?</div>
+                <div class="faq-answer">Siamo sempre aperti a collaborazioni con anime affini! Contattaci all'indirizzo collaborazioni@tralepaginedelcuore.it con la tua proposta.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">📚 Accettate recensioni di libri romantici?</div>
+                <div class="faq-answer">Certo! Se hai letto un libro che ti ha fatto battere il cuore, condividi con noi la tua recensione. Pubblichiamo sempre volentieri consigli di lettura dal cuore.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">🎀 Posso suggerire argomenti per futuri articoli?</div>
+                <div class="faq-answer">I tuoi suggerimenti sono preziosissimi! Scrivici e raccontaci di cosa vorresti leggere. Il blog nasce dall'amore per l'amore, e i tuoi input lo rendono ancora più speciale.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">💌 Come posso rimanere sempre aggiornata?</div>
+                <div class="faq-answer">Iscriviti alla nostra newsletter per ricevere tutti gli aggiornamenti direttamente nella tua email, e seguici sui social per contenuti esclusivi e dietro le quinte del nostro piccolo mondo rosa!</div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="copyright">
+            <p>Con affetto infinito, Jasmine e la redazione di Tra le Pagine del Cuore</p>
+            <p>&copy; 2025 Tra le Pagine del Cuore. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const argomento = document.getElementById('argomento').value;
+            const messaggio = document.getElementById('messaggio').value;
+            
+            // Validate required fields
+            if (!nome || !email || !messaggio) {
+                alert('Per favore, compila tutti i campi obbligatori! 💕');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Per favore, inserisci un indirizzo email valido! 📧');
+                return;
+            }
+            
+            // Create mailto link with form data
+            const subject = argomento ? `[${argomento}] Messaggio da ${nome}` : `Messaggio da ${nome}`;
+            const body = `Nome: ${nome}\nEmail: ${email}\nArgomento: ${argomento || 'Non specificato'}\n\nMessaggio:\n${messaggio}\n\n---\nInviato tramite il form di contatto di Tra le Pagine del Cuore`;
+            
+            const mailtoLink = `mailto:Jasmine@tralepaginedelcuore.it?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show confirmation message
+            alert('Grazie per il tuo messaggio! Ti abbiamo aperto il tuo client email per completare l\'invio. Il tuo cuore ci ha raggiunto! 💖');
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Add some interactive elements
+        document.querySelectorAll('.contact-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 8px 20px rgba(232, 62, 140, 0.2)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.boxShadow = '0 4px 8px rgba(232, 62, 140, 0.1)';
+            });
+        });
+    </script>
+</body>
+</html>

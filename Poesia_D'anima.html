@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poesia d'Anima - Tra le Pagine del Cuore</title>
+    <style>
+        /* Font */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@400;700&display=swap');
+        
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Base Styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #4a4a4a;
+            background-color: #fff5f7;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #ffbae6 0%, #ffd1e8 100%);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(255, 192, 203, 0.3);
+        }
+        
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #e83e8c;
+            text-align: center;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tagline {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            text-align: center;
+            font-size: 1rem;
+            color: #e83e8c;
+            margin-bottom: 20px;
+        }
+        
+        .header-image {
+            width: 100%;
+            height: 200px;
+            background-color: #ffcce0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 10px rgba(232, 62, 140, 0.1);
+        }
+        
+        .header-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #ffffff;
+            padding: 15px 0;
+            margin-top: 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 6px rgba(232, 62, 140, 0.1);
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links li {
+            margin: 0 15px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #e83e8c;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 5px 10px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background-color: #ffcce0;
+            color: #ffffff;
+        }
+
+        .nav-links a.active {
+            background-color: #e83e8c;
+            color: #ffffff;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .page-title h1 {
+            font-family: 'Playfair Display', serif;
+            color: #e83e8c;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .page-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Poetry Section */
+        .poetry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .poetry-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(232, 62, 140, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .poetry-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .poetry-card::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            color: rgba(232, 62, 140, 0.1);
+            line-height: 1;
+        }
+        
+        .poetry-title {
+            font-family: 'Playfair Display', serif;
+            color: #e83e8c;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .poetry-content {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .poetry-author {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #888;
+            font-weight: 600;
+        }
+        
+        /* Featured Poet */
+        .featured-poet {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 50px 0;
+            box-shadow: 0 8px 20px rgba(232, 62, 140, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+        }
+        
+        .poet-image {
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(232, 62, 140, 0.2);
+        }
+        
+        .poet-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .poet-info h2 {
+            font-family: 'Playfair Display', serif;
+            color: #e83e8c;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .poet-bio {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .poet-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #e83e8c;
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 3px solid #ffcce0;
+        }
+        
+        .read-more-poet {
+            display: inline-block;
+            background-color: #e83e8c;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        
+        .read-more-poet:hover {
+            background-color: #d33076;
+        }
+        
+        /* Poetry Workshop */
+        .poetry-workshop {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(232, 62, 140, 0.1);
+        }
+        
+        .workshop-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .workshop-title {
+            font-family: 'Playfair Display', serif;
+            color: #e83e8c;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .workshop-subtitle {
+            font-size: 1rem;
+            color: #888;
+        }
+        
+        .workshop-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .workshop-info {
+            padding-right: 20px;
+        }
+        
+        .workshop-info p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .workshop-details {
+            background-color: #fff5f7;
+            padding: 25px;
+            border-radius: 10px;
+        }
+        
+        .detail-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .detail-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            background-color: #e83e8c;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            font-size: 0.8rem;
+        }
+        
+        .detail-text {
+            flex-grow: 1;
+        }
+        
+        .detail-text h4 {
+            margin-bottom: 5px;
+            color: #e83e8c;
+        }
+        
+        .workshop-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: #e83e8c;
+            color: white;
+            padding: 12px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .workshop-button:hover {
+            background-color: #d33076;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #ffbae6 0%, #ffd1e8 100%);
+            padding: 40px 0;
+            color: #e83e8c;
+            text-align: center;
+            box-shadow: 0 -4px 12px rgba(255, 192, 203, 0.3);
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-column h4 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .footer-column p, .footer-column a {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        
+        .footer-column a {
+            color: #e83e8c;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: block;
+        }
+        
+        .footer-column a:hover {
+            color: #ffffff;
+        }
+        
+        .newsletter input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            outline: none;
+        }
+        
+        .newsletter button {
+            background-color: #e83e8c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        
+        .newsletter button:hover {
+            background-color: #d33076;
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .poetry-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-poet {
+                grid-template-columns: 1fr;
+            }
+            
+            .workshop-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links li {
+                margin: 5px 10px;
+            }
+            
+            .page-title h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Tra le Pagine del Cuore</h1>
+            <p class="tagline">Un angolo dolce dove le emozioni prendono vita</p>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="Tra_Le_Pagine_Del_Cuore.html">Home</a></li>
+                    <li><a href="Storie_Del_Cuore.html">Storie del Cuore</a></li>
+                    <li><a href="Poesia_D'anima.html" class="active">Poesia d'Anima</a></li>
+                    <li><a href="Spunti_Romantici.html">Spunti Romantici</a></li>
+                    <li><a href="Emozioni_In_Cucina.html">Emozioni in Cucina</a></li>
+                    <li><a href="Contatti.html">Contatti</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="page-title">
+            <h1>🌸 Poesia d'Anima</h1>
+            <p>Versi delicati che accarezzano i pensieri, rime che danzano tra desideri e speranze.</p>
+        </div>
+        
+        <div class="poetry-grid">
+            <div class="poetry-card">
+                <h3 class="poetry-title">Sussurri di Cuore</h3>
+                <div class="poetry-content">
+                    <p>Come petali di rosa che accarezzano la pelle,<br>
+                    i tuoi pensieri sfiorano la mia anima.<br>
+                    Sei il respiro che cerco quando l'aria manca,<br>
+                    il sogno che inseguo quando il sonno giunge.</p>
+                    
+                    <p>Nei tuoi occhi trovo l'infinito,<br>
+                    nelle tue mani il calore dell'universo.<br>
+                    Sei la mia alba, il mio tramonto,<br>
+                    il battito che scandisce il tempo.</p>
+                </div>
+                <div class="poetry-author">
+                    — Matteo Ricci
+                </div>
+            </div>
+            
+            <div class="poetry-card">
+                <h3 class="poetry-title">Attimi Sospesi</h3>
+                <div class="poetry-content">
+                    <p>Nella danza delle ore,<br>
+                    c'è un momento sospeso,<br>
+                    quando i tuoi occhi incontrano i miei<br>
+                    e il mondo smette di girare.</p>
+                    
+                    <p>È un attimo di eternità rubata,<br>
+                    un frammento di infinito<br>
+                    che conservo nel cuore<br>
+                    come il più prezioso dei tesori.</p>
+                </div>
+                <div class="poetry-author">
+                    — Laura Belli
+                </div>
+            </div>
+            
+            <div class="poetry-card">
+                <h3 class="poetry-title">Melodia dell'Anima</h3>
+                <div class="poetry-content">
+                    <p>Le tue parole sono note<br>
+                    di una melodia che solo io posso sentire.<br>
+                    Vibrano nell'aria, danzano nel vento,<br>
+                    si posano sul mio cuore come farfalle.</p>
+                    
+                    <p>Ogni sillaba, un battito.<br>
+                    Ogni pausa, un respiro.<br>
+                    Sei la canzone che non smette mai,<br>
+                    la musica che mi accompagna nel silenzio.</p>
+                </div>
+                <div class="poetry-author">
+                    — Andrea Moretti
+                </div>
+            </div>
+            
+            <div class="poetry-card">
+                <h3 class="poetry-title">Intrecci d'Anima</h3>
+                <div class="poetry-content">
+                    <p>Come fili di seta che si intrecciano,<br>
+                    le nostre anime si cercano, si trovano.<br>
+                    Un nodo dopo l'altro,<br>
+                    creiamo un arazzo di emozioni.</p>
+                    
+                    <p>È un disegno unico, irripetibile,<br>
+                    fatto di ricordi condivisi e sogni comuni.<br>
+                    Nell'ordito del tempo, nella trama dello spazio,<br>
+                    noi, eterni tessitori di amore.</p>
+                </div>
+                <div class="poetry-author">
+                    — Sofia Conti
+                </div>
+            </div>
+        </div>
+        
+        <section class="featured-poet">
+            <div class="poet-image">
+                <img src="" alt="Chiara Bianchi">
+            </div>
+            <div class="poet-info">
+                <h2>Poetessa del Mese: Chiara Bianchi</h2>
+                <div class="poet-bio">
+                    <p>Chiara Bianchi, nata a Firenze nel 1990, è una delle voci più delicate e intense della poesia contemporanea. Con tre raccolte pubblicate e numerosi riconoscimenti, la sua scrittura si distingue per la capacità di trasformare le emozioni quotidiane in versi che toccano l'anima.</p>
+                    
+                    <p>Cresciuta tra i libri della libreria di famiglia, Chiara ha sempre trovato nella poesia il suo modo di esprimersi e di dare voce a ciò che le parole comuni non riescono a descrivere. Il suo stile, raffinato e al tempo stesso accessibile, parla di amore, di attese, di incontri, di quei momenti sospesi in cui la vita mostra tutta la sua bellezza.</p>
+                </div>
+                <div class="poet-quote">
+                    "La poesia è quel sussurro che si fa sentire anche nel frastuono del mondo, è la luce che filtra anche nella più fitta oscurità. Scrivere versi è il mio modo di resistere all'indifferenza, di celebrare anche il più piccolo battito d'ali."
+                </div>
+                <a href="#" class="read-more-poet">Scopri tutte le sue opere</a>
+            </div>
+        </section>
+        
+        <section class="poetry-workshop">
+            <div class="workshop-header">
+                <h2 class="workshop-title">Laboratorio di Poesia</h2>
+                <p class="workshop-subtitle">Libera la tua voce poetica con il nostro workshop mensile</p>
+            </div>
+            
+            <div class="workshop-content">
+                <div class="workshop-info">
+                    <p>Hai sempre desiderato esprimere le tue emozioni attraverso la poesia ma non sai da dove iniziare? O forse scrivi già ma vorresti confrontarti con altri appassionati come te? Il nostro Laboratorio di Poesia è lo spazio perfetto per te!</p>
+                    
+                    <p>In un ambiente accogliente e stimolante, guidati dalla poetessa Elena Rossi, esploreremo insieme le infinite possibilità della parola poetica. Attraverso esercizi di scrittura creativa, letture condivise e feedback costruttivi, scopriremo come dare forma ai sentimenti e trasformare le esperienze quotidiane in versi che arrivano al cuore.</p>
+                    
+                    <p>Il laboratorio è aperto a tutti, dai principianti assoluti a chi ha già esperienza. L'importante è la passione e la voglia di mettersi in gioco!</p>
+                </div>
+                
+                <div class="workshop-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">📅</div>
+                        <div class="detail-text">
+                            <h4>Quando</h4>
+                            <p>Ogni primo sabato del mese, dalle 15:00 alle 18:00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-icon">📍</div>
+                        <div class="detail-text">
+                            <h4>Dove</h4>
+                            <p>Libreria "Il Mondo delle Parole", Via dei Fiori 12, Milano</p>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-icon">💰</div>
+                        <div class="detail-text">
+                            <h4>Costo</h4>
+                            <p>25€ a incontro, materiali inclusi</p>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-icon">👥</div>
+                        <div class="detail-text">
+                            <h4>Partecipanti</h4>
+                            <p>Massimo 15 persone per gruppo</p>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="workshop-button">Prenota il tuo posto</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Resta in contatto</h4>
+                <p>Non perdere i nostri aggiornamenti settimanali!</p>
+                <a href="#">📱 Instagram: @TraLePagineDelCuore</a>
+                <a href="#">📱 Facebook: @TraLePagineDelCuore</a>
+                <a href="#">📱 Pinterest: @TraLePagineDelCuore</a>
+            </div>
+            <div class="footer-column">
+                <h4>Sezioni</h4>
+                <a href="Tra_Le_Pagine_Del_Cuore.html">Home</a>
+                <a href="Storie_Del_Cuore.html">Storie del Cuore</a>
+                <a href="Poesia_D'anima.html">Poesia d'Anima</a>
+                <a href="Spunti_Romantici.html">Spunti Romantici</a>
+                <a href="Emozioni_In_Cucina.html">Emozioni in Cucina</a>
+                <a href="Contatti.html">Contatti</a>
+            </div>
+            <div class="footer-column newsletter">
+                <h4>Newsletter</h4>
+                <p>Ricevi direttamente nella tua casella di posta elettronica i nostri articoli profumati d'amore!</p>
+                <input type="email" placeholder="La tua email">
+                <button>Iscriviti</button>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Con affetto, La redazione di Tra le Pagine del Cuore</p>
+            <p>&copy; 2025 Tra le Pagine del Cuore. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+</body>
+</html>

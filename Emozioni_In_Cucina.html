@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emozioni in Cucina - Blog Rosa Confetto</title>
+    <style>
+        /* Font */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@400;700&display=swap');
+        
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Base Styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #4a4a4a;
+            background-color: #fff5f7;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #ffbae6 0%, #ffd1e8 100%);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(255, 192, 203, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+            opacity: 0.1;
+        }
+        
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #e83e8c;
+            text-align: center;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tagline {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            text-align: center;
+            font-size: 1rem;
+            color: #e83e8c;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #ffffff;
+            padding: 15px 0;
+            margin-top: 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 6px rgba(232, 62, 140, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links li {
+            margin: 0 15px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #e83e8c;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 5px 10px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            background-color: #ffcce0;
+            color: #ffffff;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+        
+        .page-header {
+            text-align: center;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(232, 62, 140, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+            opacity: 0.05;
+            border-radius: 15px;
+        }
+        
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            color: #e83e8c;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .page-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Image Styles */
+        .content-image {
+            width: 100%;
+            height: auto;
+            min-height: 200px;
+            max-height: 400px;
+            object-fit: contain;
+            object-position: center;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(232, 62, 140, 0.15);
+            margin: 20px 0;
+            background-color: #fff5f7;
+        }
+        
+        .recipe-image {
+            width: 100%;
+            height: auto;
+            min-height: 250px;
+            max-height: 500px;
+            object-fit: contain;
+            object-position: center;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(232, 62, 140, 0.2);
+            background-color: #fff5f7;
+        }
+        
+        .menu-image {
+            width: 100%;
+            height: auto;
+            min-height: 150px;
+            max-height: 250px;
+            object-fit: contain;
+            object-position: center;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            background-color: #fff5f7;
+        }
+        
+        /* Sections */
+        .section {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(232, 62, 140, 0.1);
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #e83e8c;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ffcce0;
+        }
+        
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #e83e8c;
+            font-size: 1.3rem;
+            margin: 20px 0 15px;
+        }
+        
+        /* Recipe Card */
+        .recipe-card {
+            background: linear-gradient(135deg, #fff5f7 0%, #ffcce0 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 6px 15px rgba(232, 62, 140, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .recipe-card::before {
+            content: "💕";
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            opacity: 0.3;
+        }
+        
+        .recipe-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #e83e8c;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .recipe-description {
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 25px;
+            color: #666;
+        }
+        
+        .recipe-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .ingredients, .instructions {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 12px;
+        }
+        
+        .ingredients h4, .instructions h4 {
+            color: #e83e8c;
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .ingredients ul, .instructions ol {
+            padding-left: 20px;
+        }
+        
+        .ingredients li, .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        /* Tips Section */
+        .cooking-tip {
+            background-color: #fff5f7;
+            border-left: 4px solid #e83e8c;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .cooking-tip::before {
+            content: "💡 ";
+            font-size: 1.2rem;
+        }
+        
+        .cooking-tip::after {
+            content: '';
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            width: 30px;
+            height: 30px;
+            background: url('https://images.unsplash.com/photo-1556909087-2e4c7e6e8c8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80') center/cover;
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+        
+        /* Menu Ideas */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .menu-item {
+            background: linear-gradient(145deg, #ffffff 0%, #fff5f7 100%);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 12px rgba(232, 62, 140, 0.12);
+            transition: transform 0.3s ease;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .menu-emoji {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .menu-item h4 {
+            color: #e83e8c;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+        }
+        
+        /* Quote */
+        .quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: #e83e8c;
+            text-align: center;
+            padding: 30px;
+            background-color: #fff5f7;
+            border-radius: 12px;
+            margin: 40px 0;
+            box-shadow: 0 4px 8px rgba(232, 62, 140, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quote::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+            opacity: 0.03;
+            border-radius: 12px;
+        }
+        
+        /* Story Box */
+        .story-box {
+            background: linear-gradient(135deg, #ffcce0 0%, #ffd1e8 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            font-style: italic;
+            box-shadow: 0 6px 15px rgba(232, 62, 140, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .story-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1556909087-8d6c603c3c1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+            opacity: 0.05;
+            border-radius: 15px;
+        }
+        
+        .story-box h4 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #e83e8c;
+            margin-bottom: 15px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .story-box p {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(232, 62, 140, 0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            min-height: 150px;
+            max-height: 300px;
+            object-fit: contain;
+            object-position: center;
+            background-color: #fff5f7;
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(232, 62, 140, 0.8));
+            color: white;
+            padding: 15px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #ffbae6 0%, #ffd1e8 100%);
+            padding: 40px 0;
+            color: #e83e8c;
+            text-align: center;
+            box-shadow: 0 -4px 12px rgba(255, 192, 203, 0.3);
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-column h4 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .footer-column p, .footer-column a {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        
+        .footer-column a {
+            color: #e83e8c;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: block;
+        }
+        
+        .footer-column a:hover {
+            color: #ffffff;
+        }
+        
+        .newsletter input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            outline: none;
+        }
+        
+        .newsletter button {
+            background-color: #e83e8c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        
+        .newsletter button:hover {
+            background-color: #d33076;
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .recipe-details {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .recipe-title {
+                font-size: 1.8rem;
+            }
+            
+            .nav-links li {
+                margin: 5px 10px;
+            }
+            
+            .content-image, .recipe-image {
+                min-height: 180px;
+                max-height: 300px;
+            }
+            
+            .menu-image {
+                min-height: 120px;
+                max-height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-background"></div>
+        <div class="container">
+            <h1 class="logo">Tra le Pagine del Cuore</h1>
+            <p class="tagline">Un angolo dolce dove le emozioni prendono vita</p>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="Tra_Le_Pagine_Del_Cuore.html">Home</a></li>
+                    <li><a href="Storie_Del_Cuore.html">Storie del Cuore</a></li>
+                    <li><a href="Poesia_D'anima.html">Poesia d'Anima</a></li>
+                    <li><a href="Spunti_Romantici.html">Spunti Romantici</a></li>
+                    <li><a href="Emozioni_In_Cucina.html" class="active">Emozioni in Cucina</a></li>
+                    <li><a href="Contatti.html">Contatti</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="page-header">
+            <h1>✨ Emozioni in Cucina ✨</h1>
+            <p>Dove ogni ricetta è una storia d'amore e ogni sapore racconta un'emozione. Benvenuti nella cucina del cuore, dove si preparano non solo piatti deliziosi, ma ricordi indimenticabili da condividere con chi amiamo.</p>
+        </section>
+
+        <!-- Cucina romantica e accogliente -->
+        <img src="cucina.jpg" alt="Cucina romantica con candele e fiori" class="content-image">
+
+        <div class="story-box">
+            <h4>La magia dei sapori condivisi</h4>
+            <p>C'è qualcosa di magico nel cucinare per qualcuno che amiamo. Forse è il profumo che si diffonde per casa mentre mescoliamo gli ingredienti con cura, o forse è quel momento speciale quando vediamo il sorriso sul viso di chi assaggia quello che abbiamo preparato con tanto amore. Ogni ricetta diventa una dichiarazione d'amore silenziosa, ogni piatto un abbraccio caldo che nutre non solo il corpo, ma anche l'anima.</p>
+        </div>
+
+        <section class="section">
+            <h2>🍓 Ricetta del Cuore: Tiramisù alle Fragole Rosa</h2>
+            
+            <!-- Tiramisù elegante con fragole fresche -->
+            <img src="Tiramisù alle Fragole Rosa.jpg" alt="Tiramisù alle fragole decorato con petali di rosa" class="recipe-image">
+            
+            <div class="recipe-card">
+                <h3 class="recipe-title">Tiramisù alle Fragole Rosa</h3>
+                <p class="recipe-description">Un dolce che sa di primavera e di baci rubati al tramonto. Perfetto per celebrare i momenti speciali insieme.</p>
+                
+                <div class="recipe-details">
+                    <div class="ingredients">
+                        <h4>💕 Ingredienti per 2 cuori innamorati:</h4>
+                        <ul>
+                            <li>200g di fragole fresche</li>
+                            <li>250g di mascarpone</li>
+                            <li>3 uova (separate)</li>
+                            <li>80g di zucchero</li>
+                            <li>200ml di panna fresca</li>
+                            <li>24 savoiardi</li>
+                            <li>200ml di caffè rosa (con sciroppo di rose)</li>
+                            <li>2 cucchiai di liquore alle fragole</li>
+                            <li>Cacao rosa in polvere</li>
+                            <li>Petali di rosa edibili</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="instructions">
+                        <h4>🌸 Preparazione con amore:</h4>
+                        <ol>
+                            <li>Frulla metà delle fragole e taglia il resto a fettine</li>
+                            <li>Monta i tuorli con lo zucchero fino ad ottenere una crema chiara</li>
+                            <li>Incorpora delicatamente il mascarpone e la purea di fragole</li>
+                            <li>Monta gli albumi a neve e la panna separatamente</li>
+                            <li>Unisci tutto con movimenti dal basso verso l'alto</li>
+                            <li>Prepara il caffè rosa e lascialo intiepidire</li>
+                            <li>Intingi i savoiardi e disponi il primo strato</li>
+                            <li>Alterna crema, fragole a fette e savoiardi</li>
+                            <li>Riposa in frigo per almeno 4 ore</li>
+                            <li>Decora con cacao rosa e petali di rosa</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="cooking-tip">
+                    <strong>Segreto del cuore:</strong> Aggiungi una goccia di estratto di vaniglia nella crema e sussurra una parola dolce mentre mescoli. L'amore è l'ingrediente segreto che rende tutto più buono!
+                </div>
+            </div>
+        </section>
+
+        <div class="quote">
+            "Cucinare è un atto d'amore. Ogni piatto preparato con il cuore nutre l'anima prima ancora del corpo."
+        </div>
+
+        <section class="section">
+            <h2>💐 Menu romantici per ogni occasione</h2>
+            
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <!-- Cena romantica a lume di candela -->
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Cena romantica a lume di candela" class="menu-image">
+                    <span class="menu-emoji">🕯️</span>
+                    <h4>Cena a lume di candela</h4>
+                    <p><strong>Antipasto:</strong> Bruschette al salmone e rucola<br>
+                    <strong>Primo:</strong> Risotto ai petali di rosa<br>
+                    <strong>Secondo:</strong> Filetto al pepe rosa<br>
+                    <strong>Dolce:</strong> Panna cotta ai frutti di bosco</p>
+                </div>
+                
+                <div class="menu-item">
+                    <!-- Colazione romantica con pancakes -->
+                    <img src="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Colazione romantica con pancakes a forma di cuore" class="menu-image">
+                    <span class="menu-emoji">🌅</span>
+                    <h4>Colazione della domenica</h4>
+                    <p><strong>Dolce:</strong> Pancakes a forma di cuore<br>
+                    <strong>Bevanda:</strong> Cappuccino con schiuma decorata<br>
+                    <strong>Frutta:</strong> Fragole con cioccolato bianco<br>
+                    <strong>Extra:</strong> Marmellata fatta in casa</p>
+                </div>
+                
+                <div class="menu-item">
+                    <!-- Torta elegante per anniversario -->
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Torta di anniversario elegante con prosecco" class="menu-image">
+                    <span class="menu-emoji">🎂</span>
+                    <h4>Anniversario speciale</h4>
+                    <p><strong>Aperitivo:</strong> Cocktail all'Aperol con petali<br>
+                    <strong>Primo:</strong> Tortellini in brodo di cappone<br>
+                    <strong>Secondo:</strong> Agnello alle erbe aromatiche<br>
+                    <strong>Dolce:</strong> Torta millefoglie personalizzata</p>
+                </div>
+                
+                <div class="menu-item">
+                    <!-- Menu di San Valentino raffinato -->
+                    <img src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Menu di San Valentino con ostriche e champagne" class="menu-image">
+                    <span class="menu-emoji">🥂</span>
+                    <h4>San Valentino</h4>
+                    <p><strong>Antipasto:</strong> Ostriche al limone rosa<br>
+                    <strong>Primo:</strong> Tagliatelle rosse ai gamberetti<br>
+                    <strong>Secondo:</strong> Cuori di merluzzo in crosta<br>
+                    <strong>Dolce:</strong> Soufflé al cioccolato fondente</p>
+                </div>
+            </div>
+        </section>
+
+        <img src="nonna che cucina con amore.jpg" alt="Nonna che cucina con amore" class="content-image">
+
+        <section class="section">
+            <h2>🌹 I segreti della nonna per cucinare con amore</h2>
+            
+            <div class="cooking-tip">
+                <strong>Il sale dell'amore:</strong> Aggiungi sempre un pizzico di sale in più quando cucini per qualcuno di speciale. Nonna diceva che il sale assorbe le preoccupazioni e lascia spazio solo alla gioia.
+            </div>
+            
+            <div class="cooking-tip">
+                <strong>L'importanza del tempo:</strong> Non avere fretta. Ogni piatto ha i suoi tempi, come l'amore. Lascia che i sapori si conoscano, si mescolino e si innamorino lentamente.
+            </div>
+            
+            <div class="cooking-tip">
+                <strong>La presentazione del cuore:</strong> Un piatto bello è un piatto che parla prima ancora di essere assaggiato. Aggiungi sempre un tocco di colore, un fiore commestibile, una decorazione che faccia sorridere.
+            </div>
+            
+            <div class="cooking-tip">
+                <strong>L'ingrediente magico:</strong> Sorridi sempre mentre cucini. La felicità si trasmette attraverso le mani e finisce dritta nel piatto. È il segreto per rendere ogni ricetta indimenticabile.
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>🍯 Ricette veloci per dire "Ti amo"</h2>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="biscotti con glassa rosa.jpg" alt="Biscotti a forma di cuore">
+                    <div class="gallery-caption">Biscotti a forma di cuore</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Cioccolata calda con marshmallow">
+                    <div class="gallery-caption">Cioccolata calda speciale</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Lucid_Origin_A_vibrant_and_intimate_still_life_of_Bruschette_d_2.jpg" alt="Bruschette colorate">
+                    <div class="gallery-caption">Bruschette dell'amore</div>
+                </div>
+            </div>
+            
+            <h3>Biscotti a forma di cuore (15 minuti)</h3>
+            <p>Pasta frolla pronta, formine a cuore, marmellata di fragole e tanta dolcezza. Perfetti per una sorpresa dell'ultimo minuto che scalda il cuore.</p>
+            
+            <h3>Cioccolata calda speciale (10 minuti)</h3>
+            <p>Latte, cioccolato fondente, un cucchiaino di miele, cannella e marshmallow rosa. Servita in tazze abbinate con una letterina d'amore.</p>
+            
+            <h3>Bruschette dell'amore (5 minuti)</h3>
+            <p>Pane tostato, pomodorini ciliegini, basilico fresco, mozzarella a dadini e un filo d'olio extravergine. Semplice ma efficace come una carezza.</p>
+        </section>
+
+        <img src="Lucid_Origin_a_young_couple_a_boy_with_short_brown_hair_and_a__2.jpg" alt="Coppia che cucina insieme" class="content-image">
+
+        <div class="story-box">
+            <h4>Il ricordo più dolce</h4>
+            <p>Ricordo ancora la prima volta che ho cucinato per lui. Ero così nervosa che ho bruciato il sugo e salato troppo l'acqua della pasta. Ma quando l'ho visto sorridere e dire "È il piatto più buono del mondo", ho capito che non importa se la ricetta è perfetta. Importa l'amore che ci metti dentro. Da quel giorno, ogni volta che cucino, aggiungo sempre un ingrediente speciale: un sorriso, un pensiero dolce, un ricordo bello. Perché in fondo, noi non nutriamo solo i corpi, ma anche le anime di chi amiamo.</p>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Resta in contatto</h4>
+                <p>Non perdere le nostre ricette settimanali!</p>
+                <a href="#">📱 Instagram: @TraLePagineDelCuore</a>
+                <a href="#">📱 Facebook: @TraLePagineDelCuore</a>
+                <a href="#">📱 Pinterest: @TraLePagineDelCuore</a>
+            </div>
+            <div class="footer-column">
+                <h4>Sezioni</h4>
+                 <a href="Tra_Le_Pagine_Del_Cuore.html">Home</a>
+                <a href="Storie_Del_Cuore.html">Storie del Cuore</a>
+                <a href="Poesia_D'anima.html">Poesia d'Anima</a>
+                <a href="Spunti_Romantici.html">Spunti Romantici</a>
+                <a href="Emozioni_In_Cucina.html">Emozioni in Cucina</a>
+                <a href="Contatti.html">Contatti</a>
+            </div>
+            <div class="footer-column newsletter">
+                <h4>Newsletter delle Ricette</h4>
+                <p>Ricevi ogni settimana una nuova ricetta del cuore direttamente nella tua casella di posta!</p>
+                <input type="email" placeholder="La tua email">
+                <button>Iscriviti</button>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Con affetto e tanta dolcezza, La redazione di Tra le Pagine del Cuore</p>
+            <p>&copy; 2025 Tra le Pagine del Cuore. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+</body>
+</html>

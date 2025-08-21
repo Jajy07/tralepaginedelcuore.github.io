@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tra le Pagine del Cuore - Blog Rosa Confetto</title>
+    <style>
+        /* Font */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@400;700&display=swap');
+        
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Base Styles */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #4a4a4a;
+            background-color: #fff5f7;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #ffbae6 0%, #ffd1e8 100%);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(255, 192, 203, 0.3);
+        }
+        
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #e83e8c;
+            text-align: center;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tagline {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            text-align: center;
+            font-size: 1rem;
+            color: #e83e8c;
+            margin-bottom: 20px;
+        }
+        
+        .header-image {
+            width: 10%;
+            height: 10%;
+            background-color: #ffcce0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 10px rgba(232, 62, 140, 0.1);
+        }
+        
+        .header-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #ffffff;
+            padding: 15px 0;
+            margin-top: 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 6px rgba(232, 62, 140, 0.1);
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links li {
+            margin: 0 15px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #e83e8c;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 5px 10px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background-color: #ffcce0;
+            color: #ffffff;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+        
+        .welcome {
+            text-align: center;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(232, 62, 140, 0.1);
+        }
+        
+        .welcome h1 {
+            font-family: 'Playfair Display', serif;
+            color: #e83e8c;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .welcome p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Sections */
+        .section {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(232, 62, 140, 0.1);
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #e83e8c;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ffcce0;
+        }
+        
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #e83e8c;
+            font-size: 1.3rem;
+            margin: 20px 0 15px;
+        }
+        
+        /* Categories */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .category {
+            background-color: #fff5f7;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(232, 62, 140, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .category:hover {
+            transform: translateY(-5px);
+        }
+        
+        .category h3 {
+            margin-top: 0;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+        
+        .category p {
+            font-size: 0.95rem;
+            text-align: center;
+        }
+        
+        /* Featured Article */
+        .featured-article {
+            padding: 30px;
+            background-color: #fff5f7;
+            border-radius: 12px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(232, 62, 140, 0.1);
+        }
+        
+        .featured-article h3 {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .featured-article p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .read-more {
+            font-style: italic;
+            color: #e83e8c;
+            text-align: center;
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .read-more:hover {
+            text-decoration: underline;
+        }
+        
+        /* Monthly Tips */
+        .monthly-tips ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .monthly-tips li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .monthly-tips li::before {
+            content: "♥";
+            color: #e83e8c;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        /* Quote */
+        .quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #e83e8c;
+            text-align: center;
+            padding: 30px;
+            background-color: #fff5f7;
+            border-radius: 12px;
+            margin: 40px 0;
+            box-shadow: 0 4px 8px rgba(232, 62, 140, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #ffbae6 0%, #ffd1e8 100%);
+            padding: 40px 0;
+            color: #e83e8c;
+            text-align: center;
+            box-shadow: 0 -4px 12px rgba(255, 192, 203, 0.3);
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-column h4 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .footer-column p, .footer-column a {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+        
+        .footer-column a {
+            color: #e83e8c;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: block;
+        }
+        
+        .footer-column a:hover {
+            color: #ffffff;
+        }
+        
+        .newsletter input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            outline: none;
+        }
+        
+        .newsletter button {
+            background-color: #e83e8c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        
+        .newsletter button:hover {
+            background-color: #d33076;
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .categories {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links li {
+                margin: 5px 10px;
+            }
+            
+            .welcome {
+                padding: 30px 20px;
+            }
+            
+            .welcome h1 {
+                font-size: 1.8rem;
+            }
+            
+            .welcome p {
+                font-size: 1rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .featured-article p {
+                font-size: 1rem;
+            }
+        }
+
+         /* Stili per la sezione articolo */
+        .section {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(232, 62, 140, 0.1);
+        }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #e83e8c;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ffcce0;
+        }
+        
+        .featured-article {
+            padding: 30px;
+            background-color: #fff5f7;
+            border-radius: 12px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(232, 62, 140, 0.1);
+        }
+        
+        .featured-article h3 {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .featured-article p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .read-more {
+            font-style: italic;
+            color: #e83e8c;
+            text-align: center;
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .read-more:hover {
+            text-decoration: underline;
+        }
+        
+        #article-full {
+            transition: all 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Tra le Pagine del Cuore</h1>
+            <p class="tagline">Un angolo dolce dove le emozioni prendono vita</p>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="Tra_Le_Pagine_Del_Cuore.html" class="active">Home</a></li>
+                    <li><a href="Storie_Del_Cuore.html">Storie del Cuore</a></li>
+                    <li><a href="Poesia_D'anima.html">Poesia d'Anima</a></li>
+                    <li><a href="Spunti_Romantici.html">Spunti Romantici</a></li>
+                    <li><a href="Emozioni_In_Cucina.html">Emozioni in Cucina</a></li>
+                    <li><a href="Contatti.html">Contatti</a></li>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="welcome">
+            <h1>Benvenuti nel nostro mondo rosa</h1>
+
+            <div class="card-image">
+                        <img src="freepik__a-blog-design-with-a-vintage-aesthetic-showcasing-__87461.png" alt="Tra le pagine del cuore">
+            </div> 
+
+            <p>Ciao a tutti, amanti dei sogni e delle emozioni! Benvenuti su <em>Tra le Pagine del Cuore</em>, il blog dove ogni battito si trasforma in parole, dove ogni sospiro diventa poesia.</p>
+            <p>In questo angolo rosa confetto del web, condivideremo insieme storie d'amore che scaldano l'anima, riflessioni sui sentimenti che colorano le nostre giornate, e piccoli spunti per rendere speciale ogni momento della vita.</p>
+        </section>
+        
+        <section class="section">
+            <h2>Le nostre rubriche</h2>
+            <div class="categories">
+                <div class="category">
+                    <h3>💖 Storie del Cuore</h3>
+                    <p>Racconti romantici, esperienze vissute e favole moderne che parlano d'amore in tutte le sue sfumature.</p>
+                </div>
+                <div class="category">
+                    <h3>🌸 Poesia d'Anima</h3>
+                    <p>Versi delicati che accarezzano i pensieri, rime che danzano tra desideri e speranze.</p>
+                </div>
+                <div class="category">
+                    <h3>🎀 Spunti Romantici</h3>
+                    <p>Idee per sorprendere chi ami, consigli per appuntamenti indimenticabili e piccoli gesti che fanno la differenza.</p>
+                </div>
+                <div class="category">
+                    <h3>✨ Emozioni in Cucina</h3>
+                    <p>Ricette dolci per occasioni speciali, preparazioni che parlano d'amore attraverso i sapori.</p>
+                </div>
+            </div>
+        </section>
+        
+<section class="section">
+        <h2>Articolo in evidenza</h2>
+        <div class="featured-article">
+            <h3>Amare è... trovare casa negli occhi di qualcuno</h3>
+            <div id="article-preview">
+                <p>Quante volte ci siamo chiesti cosa significhi veramente amare? Forse è quel momento in cui guardando negli occhi dell'altra persona ci sentiamo finalmente a casa. È quel battito accelerato quando senti i suoi passi avvicinarsi, è quel sorriso involontario che nasce sulle labbra al solo pensiero.</p>
+                <p>Amare è costruire insieme un mondo fatto di piccoli rituali, di sguardi complici, di silenzi parlanti. È quella sensazione di calore che ti avvolge anche nelle giornate più grigie, è sapere che c'è qualcuno che ti pensa anche quando siete lontani.</p>
+            </div>
+            <div id="article-full" style="display: none;">
+                <p>Ma l'amore vero, quello che dura nel tempo, è anche saper ridere insieme delle piccole imperfezioni, è trovare bellezza nei difetti dell'altro, è scegliersi ogni giorno anche quando la passione iniziale si trasforma in qualcosa di più profondo e duraturo.</p>
+                
+                <p>È nel modo in cui ti prende la mano quando attraversate la strada, anche dopo anni. È in come ti guarda quando pensi che nessuno ti stia osservando. È in quella tazza di tè che ti porta quando sei malata, nel modo in cui ricorda come ti piace il caffè al mattino.</p>
+                
+                <p>Amare è anche litigare e poi fare pace, è dire "mi dispiace" quando si sbaglia, è perdonare e ricominciare. È costruire sogni insieme e sostenersi quando quei sogni sembrano allontanarsi.</p>
+                
+                <p>Forse amare davvero significa non cercare la persona perfetta, ma trovare quella imperfetta che ti rende perfetto. È trovare qualcuno con cui anche il silenzio ha un suono dolce, con cui anche una giornata qualunque diventa speciale.</p>
+                
+                <p>È quando realizzi che "casa" non è più un luogo, ma una persona. È quando capisci che l'amore non è solo un sentimento, ma una scelta che fai ogni giorno. La scelta di amare, di restare, di costruire insieme qualcosa di bello.</p>
+                
+                <p style="font-style: italic; text-align: center; margin-top: 20px; color: #e83e8c;">E tu, hai già trovato la tua casa negli occhi di qualcuno? ❤️</p>
+            </div>
+            <a href="#" class="read-more" id="toggle-article">Continua a leggere...</a>
+        </div>
+    </section>
+        
+        <section class="section monthly-tips">
+            <h2>I consigli del mese</h2>
+            <ul>
+                <li><strong>Il libro del cuore</strong>: "L’estate nei tuoi occhi" di Jenny Han </li>
+                <li><strong>Film da vedere insieme</strong>: "Le pagine della nostra vita" (The Notebook)" o se preferite, meno malinconico, optate per "Mamma Mia"</li>
+                <li><strong>La canzone perfetta</strong>: "Estate" di Negramaro</li>
+                <li><strong>Meta romantica</strong>: Piccolo caffè vista mare a Positano</li>
+            </ul>
+        </section>
+        
+        <div class="quote">
+            "L'amore non si trova, si costruisce giorno dopo giorno, pagina dopo pagina, come il più bello dei romanzi."
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Resta in contatto</h4>
+                <p>Non perdere i nostri aggiornamenti settimanali!</p>
+                <a href="#">📱 Instagram: @TraLePagineDelCuore</a>
+                <a href="#">📱 Facebook: @TraLePagineDelCuore</a>
+                <a href="#">📱 Pinterest: @TraLePagineDelCuore</a>
+            </div>
+            <div class="footer-column">
+                <h4>Sezioni</h4>
+                <a href="Tra_Le_Pagine_Del_Cuore.html">Home</a>
+                <a href="Storie_Del_Cuore.html">Storie del Cuore</a>
+                <a href="Poesia_D'anima.html">Poesia d'Anima</a>
+                <a href="Spunti_Romantici.html">Spunti Romantici</a>
+                <a href="Emozioni_In_Cucina.html">Emozioni in Cucina</a>
+                <a href="Contatti.html">Contatti</a>
+            </div>
+            <div class="footer-column newsletter">
+                <h4>Newsletter</h4>
+                <p>Ricevi direttamente nella tua casella di posta elettronica i nostri articoli profumati d'amore!</p>
+                <input type="email" placeholder="La tua email">
+                <button>Iscriviti</button>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Con affetto, La redazione di Tra le Pagine del Cuore</p>
+            <p>&copy; 2025 Tra le Pagine del Cuore. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+       <script>
+        document.getElementById('toggle-article').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const articleFull = document.getElementById('article-full');
+            const toggleBtn = document.getElementById('toggle-article');
+            
+            if (articleFull.style.display === 'none') {
+                articleFull.style.display = 'block';
+                toggleBtn.textContent = 'Chiudi articolo...';
+            } else {
+                articleFull.style.display = 'none';
+                toggleBtn.textContent = 'Continua a leggere...';
+            }
+        });
+    </script>
+</body>
+</html>

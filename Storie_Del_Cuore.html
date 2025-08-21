@@ -1,0 +1,2061 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storie del Cuore - Tra le Pagine del Cuore</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #e83e8c;
+            --secondary-color: #ffcce0;
+            --accent-color: #ffd1e8;
+            --background-color: #fff5f7;
+            --text-color: #4a4a4a;
+            --white: #ffffff;
+            --shadow-light: rgba(232, 62, 140, 0.1);
+            --shadow-medium: rgba(232, 62, 140, 0.2);
+            --shadow-dark: rgba(232, 62, 140, 0.3);
+            --border-radius: 10px;
+            --border-radius-large: 20px;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* ===== HEADER STYLES ===== */
+        header {
+            background: linear-gradient(135deg, #ffbae6 0%, var(--accent-color) 100%);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px var(--shadow-dark);
+        }
+        
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tagline {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            text-align: center;
+            font-size: 1rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .header-image {
+            width: 100%;
+            height: 200px;
+            background-color: var(--secondary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 6px 10px var(--shadow-light);
+        }
+        
+        .header-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            padding: 15px 0;
+            margin-top: 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 6px var(--shadow-light);
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        /* ===== MAIN CONTENT ===== */
+        main {
+            padding: 40px 0;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .page-title h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .page-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        
+        /* ===== STORY COMPONENTS ===== */
+        .story {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px var(--shadow-light);
+            transition: var(--transition);
+        }
+        
+        .story:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px var(--shadow-medium);
+        }
+        
+        .story-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--secondary-color);
+        }
+        
+        .story-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin: 0;
+        }
+        
+        .story-date {
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        .story-image {
+            width: 100%;
+            height: 300px;
+            margin-bottom: 25px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .story:hover .story-image img {
+            transform: scale(1.05);
+        }
+        
+        .story-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+        
+        .story-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--secondary-color);
+        }
+        
+        .story-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--secondary-color);
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info .author-name {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1rem;
+        }
+        
+        .author-info .author-role {
+            font-size: 0.85rem;
+            color: #888;
+        }
+        
+        .story-social {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .social-button {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+            color: var(--primary-color);
+            border: none;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .social-button:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        .social-button.liked {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+        
+        /* ===== STORY CARDS GRID ===== */
+        .similar-stories h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin: 50px 0 30px;
+            text-align: center;
+        }
+        
+        .story-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .story-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--shadow-light);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .story-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px var(--shadow-medium);
+        }
+        
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .story-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        
+        .card-excerpt {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .read-more-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .read-more-link:hover {
+            color: #d33076;
+            transform: translateX(5px);
+        }
+        
+        /* ===== MODAL STYLES ===== */
+        .story-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .story-modal.active {
+            display: block;
+        }
+        
+        .modal-content {
+            background-color: var(--background-color);
+            margin: 20px auto;
+            padding: 0;
+            max-width: 900px;
+            border-radius: var(--border-radius-large);
+            overflow: hidden;
+            position: relative;
+            animation: modalSlideIn 0.4s ease-out;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-close:hover {
+            background: #d33076;
+            transform: scale(1.1) rotate(90deg);
+        }
+        
+        .modal-story {
+            padding: 40px;
+        }
+        
+        .modal-story-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .modal-story-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+        
+        .modal-story-date {
+            font-size: 1rem;
+            color: #888;
+        }
+        
+        .modal-story-image {
+            width: 100%;
+            height: 350px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .modal-story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .modal-story-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+        
+        /* ===== WRITE STORY SECTION ===== */
+        .write-story-section {
+            background: linear-gradient(135deg, var(--background-color) 0%, #ffebf0 100%);
+            border-radius: var(--border-radius-large);
+            padding: 50px 40px;
+            margin: 60px 0;
+            box-shadow: 0 10px 30px var(--shadow-light);
+            border: 2px solid var(--secondary-color);
+        }
+        
+        .write-story-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .write-story-description {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.7;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .story-form {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 30px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--secondary-color);
+            border-radius: var(--border-radius);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            background-color: var(--white);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px var(--shadow-light);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        #story-content {
+            min-height: 250px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        
+        .inspiration-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .inspiration-btn {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .inspiration-btn:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        .submit-story-btn {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #d33076 100%);
+            color: var(--white);
+            border: none;
+            padding: 18px 35px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: block;
+            margin: 40px auto 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .submit-story-btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(232, 62, 140, 0.4);
+        }
+        
+        .submit-story-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        
+        /* ===== COMMENT MODAL ===== */
+        .comments-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1002;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .comments-modal.active {
+            display: flex;
+        }
+        
+        .comments-content {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .comments-header {
+            text-align: center;
+            margin-bottom: 25px;
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        .comment-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--secondary-color);
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+            resize: vertical;
+            min-height: 80px;
+        }
+        
+        .comment-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .comment-submit {
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .comment-submit:hover {
+            background: #d33076;
+        }
+        
+        .comment-item {
+            background: var(--background-color);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin: 15px 0;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .comment-author {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .comment-text {
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        .like-animation {
+            animation: likeEffect 0.6s ease-out;
+        }
+        
+        @keyframes likeEffect {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes floatUp {
+            0% { opacity: 1; transform: translateY(0) scale(1); }
+            100% { opacity: 0; transform: translateY(-100px) scale(0.5); }
+        }
+        
+        .heart-float {
+            position: fixed;
+            font-size: 20px;
+            z-index: 9999;
+            pointer-events: none;
+            animation: floatUp 2s ease-out forwards;
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background: linear-gradient(135deg, #ffbae6 0%, var(--accent-color) 100%);
+            padding: 50px 0 30px;
+            color: var(--primary-color);
+            text-align: center;
+            box-shadow: 0 -4px 12px var(--shadow-dark);
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto 30px;
+            padding: 0 20px;
+        }
+        
+        .footer-column h4 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .footer-column p,
+        .footer-column a {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .footer-column a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+        }
+        
+        .footer-column a:hover {
+            color: var(--white);
+            transform: translateX(5px);
+        }
+        
+        .newsletter input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            outline: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .newsletter button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .newsletter button:hover {
+            background-color: #d33076;
+            transform: translateY(-2px);
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            opacity: 0.8;
+            border-top: 1px solid rgba(232, 62, 140, 0.3);
+            padding-top: 20px;
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .page-title h1 {
+                font-size: 2rem;
+            }
+            
+            .story {
+                padding: 20px;
+            }
+            
+            .story-title {
+                font-size: 1.5rem;
+            }
+            
+            .story-image {
+                height: 250px;
+            }
+            
+            .story-footer {
+                flex-direction: column;
+                gap: 20px;
+                align-items: flex-start;
+            }
+            
+            .story-social {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .story-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .write-story-section {
+                padding: 30px 20px;
+                margin: 40px 0;
+            }
+            
+            .write-story-title {
+                font-size: 1.8rem;
+            }
+            
+            .modal-content {
+                margin: 10px;
+            }
+            
+            .modal-story {
+                padding: 25px;
+            }
+            
+            .modal-story-title {
+                font-size: 1.8rem;
+            }
+            
+            .modal-story-image {
+                height: 250px;
+            }
+            
+            .inspiration-buttons {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .page-title h1 {
+                font-size: 1.7rem;
+            }
+            
+            .story {
+                padding: 15px;
+            }
+            
+            .social-button {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+            
+            .modal-story {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Tra le Pagine del Cuore</h1>
+            <p class="tagline">Un angolo dolce dove le emozioni prendono vita</p>
+            
+            <nav>
+                <ul class="nav-links">
+                <li><a href="Tra_Le_Pagine_Del_Cuore.html">Home</a></li>
+                <li><a href="Storie_Del_Cuore.html">Storie del Cuore</a></li>
+                <li><a href="Poesia_D'anima.html">Poesia d'Anima</a></li>
+                <li><a href="Spunti_Romantici.html">Spunti Romantici</a></li>
+                <li><a href="Emozioni_In_Cucina.html">Emozioni in Cucina</a></li>
+                <li><a href="Contatti.html">Contatti</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="page-title">
+            <h1>💖 Storie del Cuore</h1>
+            <p>Racconti romantici, esperienze vissute e favole moderne che parlano d'amore in tutte le sue sfumature.</p>
+        </div>
+        
+        <article class="story">
+            <div class="story-header">
+                <h2 class="story-title">Sotto il cielo di Parigi</h2>
+                <span class="story-date">12 Aprile 2025</span>
+            </div>
+            
+            <div class="story-image">
+                <img src="parigi_al_tramonto.jpeg" alt="Parigi al tramonto con Torre Eiffel">
+            </div>
+            
+            <div class="story-content">
+                <p>Era una sera di primavera quando Marco e Sofia si incontrarono per la prima volta. Il cielo di Parigi si tingeva di sfumature rosa e arancioni, la Torre Eiffel iniziava a brillare con le sue luci dorate. Sofia, seduta in un piccolo caffè sulla Senna, osservava il fiume scorrere placido mentre sfogliava distrattamente le pagine di un libro antico trovato in una libreria del Quartiere Latino.</p>
+                
+                <p>Marco entrò nello stesso caffè, bagnato da un improvviso acquazzone primaverile. Cercava un riparo, ma trovò molto di più. Il suo sguardo si posò su quella giovane donna dai capelli mossi che sembrava completamente assorta nel suo mondo. Fu questione di un attimo, di uno sguardo fugace quando lei alzò gli occhi dal libro.</p>
+                
+                <p>«È libero questo posto?» chiese lui, indicando la sedia di fronte a lei, l'unica rimasta in tutto il locale.</p>
+                
+                <p>Sofia sorrise. «Assolutamente sì. Mi faccia compagnia.»</p>
+                
+                <p>Fu così che iniziò tutto, con una conversazione su quel libro antico – "Les Fleurs du Mal" di Baudelaire – che Sofia stava leggendo. Marco, professore di letteratura francese in visita a Parigi per un convegno, non poteva credere alla coincidenza. Proprio quel libro, proprio quel caffè, proprio quella sera.</p>
+                
+                <p>Parlarono per ore, dimenticando il tempo che passava, le luci della città che si intensificavano con il calare della notte, la pioggia che aveva smesso di cadere. C'era qualcosa di magico nell'aria, un'intesa immediata, come se si conoscessero da sempre.</p>
+                
+                <p>«Ti va di fare una passeggiata?» propose Marco quando il caffè stava per chiudere. Sofia annuì, raccogliendo il suo libro e avvolgendosi nella sciarpa leggera.</p>
+                
+                <p>Camminarono lungo la Senna, condividendo storie, sogni, paure. La notte di Parigi li avvolgeva come un mantello protettivo, testimone silenziosa di quell'incontro che sapeva di destino. Quando arrivarono al Pont des Arts, Marco si fermò.</p>
+                
+                <p>«Sai qual è la tradizione di questo ponte?» chiese, gli occhi che brillavano sotto la luce dei lampioni.</p>
+                
+                <p>Sofia sorrise, il cuore che batteva un po' più forte. «I lucchetti dell'amore. Ma hanno dovuto rimuoverli, il ponte non reggeva più il peso di tutti quei sentimenti.»</p>
+                
+                <p>Marco estrasse dalla tasca un piccolo lucchetto rosso. «Ho sempre pensato fosse una tradizione sciocca, fino ad oggi. Credo che alcuni incontri siano scritti nelle stelle, e il nostro è uno di quelli.»</p>
+            </div>
+            
+            <div class="story-footer">
+                <div class="story-author">
+                    <div class="author-avatar">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b77c?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Avatar di Jasmine Satta">
+                    </div>
+                    <div class="author-info">
+                        <div class="author-name">Jasmine Satta</div>
+                        <div class="author-role">Nata e cresciuta romantica</div>
+                    </div>
+                </div>
+                
+                <div class="story-social">
+                    <button class="social-button" data-action="like" data-story="parigi">♡ Mi piace</button>
+                    <button class="social-button" data-action="comment" data-story="parigi">💬 Commenta</button>
+                    <button class="social-button" data-action="share" data-story="parigi">🔗 Condividi</button>
+                </div>
+            </div>
+        </article>
+        
+        <section class="similar-stories">
+            <h2>Altre storie che potrebbero piacerti</h2>
+            
+            <div class="story-cards">
+                <div class="story-card" onclick="openStoryModal('venezia')">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1534351590666-13e3e96b5017?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Venezia al tramonto">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Sussurri a Venezia</h3>
+                        <p class="card-excerpt">Luca è un gondoliere che ha smesso di credere nell'amore. Chiara è una violinista in fuga dai suoi demoni. Quando lei sale sulla sua gondola una nebbiosa sera d'autunno, entrambi scoprono che a volte il cuore ha bisogno solo di una canzone sussurrata tra le onde per ricominciare a battere...</p>
+                        <a href="#" class="read-more-link">Leggi la storia →</a>
+                    </div>
+                </div>
+                
+                <div class="story-card" onclick="openStoryModal('lettere')">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Lettere d'amore vintage">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Le lettere ritrovate</h3>
+                        <p class="card-excerpt">Elena eredita la casa della nonna e trova 47 lettere d'amore mai spedite, scritte a mano con inchiostro blu. Ogni lettera è firmata "Il tuo eterno A.". Decisa a scoprire l'identità del mittente, Elena inizia un'indagine che la porterà a incontrare Alessandro, il nipote dell'uomo che ha amato sua nonna in silenzio per cinquant'anni...</p>
+                        <a href="#" class="read-more-link">Leggi la storia →</a>
+                    </div>
+                </div>
+                
+                <div class="story-card" onclick="openStoryModal('giardiniere')">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Giardino botanico">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Il giardiniere dei sogni</h3>
+                        <p class="card-excerpt">Matteo coltiva orchidee impossibili in una serra nascosta. Iris dipinge ritratti di persone che non ha mai incontrato, ma che vede nei suoi sogni. Quando lei entra per caso nel suo giardino segreto, entrambi riconoscono qualcosa di familiare: lei ha dipinto lui mille volte, lui ha coltivato per anni il fiore che porta il suo nome...</p>
+                        <a href="#" class="read-more-link">Leggi la storia →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal per "Sussurri a Venezia" -->
+    <div id="venezia-modal" class="story-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeStoryModal('venezia')">&times;</button>
+            <article class="modal-story">
+                <div class="modal-story-header">
+                    <h2 class="modal-story-title">Sussurri a Venezia</h2>
+                    <span class="modal-story-date">8 Aprile 2025</span>
+                </div>
+                
+                <div class="modal-story-image">
+                    <img src="https://images.unsplash.com/photo-1534351590666-13e3e96b5017?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Venezia al tramonto">
+                </div>
+                
+                <div class="modal-story-content">
+                    <p>La nebbia avvolgeva Venezia come un velo di seta grigia, trasformando i canali in specchi opachi che riflettevano le luci soffuse dei lampioni. Luca remava lentamente nella sua gondola, seguendo il ritmo ipnotico dell'acqua che lambiva dolcemente le fondamenta degli antichi palazzi. Era il gondoliere più giovane della sua famiglia, ma anche il più disincantato.</p>
+                    
+                    <p>«Non credo più nell'amore», ripeteva spesso agli amici, «è solo una favola che raccontiamo ai turisti mentre li portiamo sotto il Ponte dei Sospiri.»</p>
+                    
+                    <p>Quella sera d'ottobre, però, qualcosa stava per cambiare. Una figura snella si avvicinò al molo dove Luca aveva ormeggiato la sua gondola. Era una donna sui trent'anni, con i capelli castani raccolti in una treccia disordinata e gli occhi rossi di pianto. Portava con sé una custodia di violino nera e consumata.</p>
+                    
+                    <p>«Posso salire?» chiese con voce tremula. «Ho bisogno di allontanarmi da tutto per un po'.»</p>
+                    
+                    <p>Luca la osservò per un momento. Non sembrava una turista in cerca di romanticismo. C'era qualcosa di autentico nel suo dolore, qualcosa che lo colpì dritto al cuore, nonostante le sue difese.</p>
+                    
+                    <p>«Certo», disse semplicemente, aiutandola a salire.</p>
+                    
+                    <p>Navigarono in silenzio per diversi minuti, attraversando canali sempre più stretti e isolati. La nebbia sembrava assorbirli, creando un mondo a parte, sospeso tra sogno e realtà. Fu Chiara – così si chiamava, glielo disse sommessamente – a rompere il silenzio.</p>
+                    
+                    <p>«Suono il violino da quando avevo cinque anni», confessò, accarezzando la custodia. «O meglio, suonavo. Oggi ho scoperto di aver perso il mio posto nell'orchestra. Dopo quindici anni di sacrifici, mi hanno detto che non sono abbastanza brava.»</p>
+                    
+                    <p>Luca smise di remare, lasciando che la gondola scivolasse dolcemente verso una piccola fondamenta isolata. «Mi dispiace», disse, e per la prima volta dopo mesi le sue parole erano sincere, prive della cortesia professionale che riservava ai clienti.</p>
+                    
+                    <p>«Anche tu hai mai perso qualcosa che credevi fosse tutta la tua vita?» gli chiese Chiara, incrociando il suo sguardo.</p>
+                    
+                    <p>Luca annuì lentamente. «L'amore», disse con un sorriso amaro. «Credevo di aver trovato la donna della mia vita. Invece ho scoperto che mi stava usando solo per le sue vacanze romantiche a Venezia. Quando è tornata nella sua città, ha sposato un altro.»</p>
+                    
+                    <p>Chiara aprì la custodia del violino. Lo strumento brillava debolmente nella luce soffusa dei lampioni. «Posso suonare qualcosa? Per te, per me... per questa città che sembra capirci entrambi.»</p>
+                    
+                    <p>Luca non rispose, ma il suo silenzio fu eloquente quanto un assenso. Chiara appoggiò il violino sulla spalla e iniziò a suonare. La melodia che nacque dalle sue dita era struggente e dolce, una canzone senza parole che parlava di perdite e speranze, di cuori infranti che cercavano ancora il coraggio di battere.</p>
+                    
+                    <p>La musica si diffuse tra i canali silenziosi, rimbalzando sui muri antichi, mescolandosi al leggero sciabordio dell'acqua. Luca sentì qualcosa sciogliersi dentro di lui, una corazza che aveva costruito attorno al suo cuore e che ora, nota dopo nota, iniziava a sgretolarsi.</p>
+                    
+                    <p>Quando Chiara smise di suonare, i loro occhi si incontrarono di nuovo. Ma questa volta non c'era solo dolore nei loro sguardi. C'era riconoscimento, comprensione, e forse – solo forse – la scintilla di qualcosa di nuovo.</p>
+                    
+                    <p>«Come si chiama quella canzone?» chiese Luca con voce roca.</p>
+                    
+                    <p>«Non lo so», rispose Chiara sorridendo per la prima volta quella sera. «L'ho appena inventata. È nata qui, stasera, con te.»</p>
+                    
+                    <p>Da quella notte, ogni volta che la nebbia avvolgeva Venezia, Luca e Chiara si ritrovavano su quella gondola. Lei suonava melodie sempre diverse, tutte nate dal loro incontro, dalle loro conversazioni, dai loro silenzi condivisi. E lui, lentamente, iniziò di nuovo a credere che forse l'amore non era solo una favola per turisti, ma qualcosa di reale che poteva nascere nel momento più inaspettato, tra due cuori feriti che avevano imparato a guarire insieme.</p>
+                </div>
+                
+                <div class="modal-story-footer">
+                    <div class="story-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Avatar di Elena Rossi">
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Elena Rossi</div>
+                            <div class="author-role">Narratrice di Emozioni</div>
+                        </div>
+                    </div>
+                    
+                    <div class="story-social">
+                        <button class="social-button">♥ Mi piace</button>
+                        <button class="social-button">💬 Commenta</button>
+                        <button class="social-button">🔗 Condividi</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <!-- Modal per "Le lettere ritrovate" -->
+    <div id="lettere-modal" class="story-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeStoryModal('lettere')">&times;</button>
+            <article class="modal-story">
+                <div class="modal-story-header">
+                    <h2 class="modal-story-title">Le lettere ritrovate</h2>
+                    <span class="modal-story-date">15 Marzo 2025</span>
+                </div>
+                
+                <div class="modal-story-image">
+                    <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Lettere d'amore vintage">
+                </div>
+                
+                <div class="modal-story-content">
+                    <p>La casa della nonna Rosa profumava ancora di lavanda e biscotti al burro quando Elena vi mise piede per la prima volta dopo il funerale. Ogni oggetto sembrava raccontare una storia, ogni fotografia custodiva un segreto. Ma fu solo quando iniziò a svuotare il vecchio baule di legno in soffitta che scoprì il mistero più grande.</p>
+                    
+                    <p>Quarantasette lettere, tutte scritte con la stessa calligrafia elegante, con lo stesso inchiostro blu cobalto. Tutte firmate con una semplice iniziale: "Il tuo eterno A.". Nessuna era mai stata spedita.</p>
+                    
+                    <p>Elena si sedette sul pavimento polveroso della soffitta e iniziò a leggere. La prima lettera era datata 12 febbraio 1952:</p>
+                    
+                    <p><em>"Mia carissima Rosa, oggi ti ho vista al mercato mentre sceglivi i fiori per la chiesa. Indossavi il vestito azzurro, quello che fa risaltare i tuoi occhi come due stelle nel cielo di primavera. Ho cercato il coraggio di avvicinarmi, ma le parole si sono dissolte nella mia gola come neve al sole. Forse un giorno troverò la forza di dirti quanto il tuo sorriso illumina le mie giornate. Il tuo eterno A."</em></p>
+                    
+                    <p>Elena sentì gli occhi riempirsi di lacrime. Sua nonna, la donna forte e indipendente che aveva cresciuto quattro figli da sola dopo la morte prematura del nonno, aveva avuto un ammiratore segreto per tutti quegli anni.</p>
+                    
+                    <p>Le lettere coprivano un arco di cinquant'anni. Parlavano di incontri casuali per strada, di sguardi furtivi durante le funzioni domenicali, di un amore mai dichiarato ma sempre presente. L'ultima lettera era datata appena due mesi prima della morte della nonna:</p>
+                    
+                    <p><em>"Mia dolce Rosa, oggi ho saputo che stai male. Vorrei essere accanto a te, tenerti la mano, dirti finalmente quello che avrei dovuto dirti cinquant'anni fa. Ma sono un vigliacco, e lo sono sempre stato. Ti amo, ti ho sempre amata, e continuerò ad amarti anche quando le nostre anime si ritroveranno in un posto dove non avremo più paura delle parole non dette. Il tuo eterno A."</em></p>
+                    
+                    <p>Determinata a scoprire l'identità di questo misterioso "A.", Elena iniziò la sua indagine. Chiese agli anziani del paese, consultò i registri della chiesa, rovistò tra le fotografie della nonna. Fu il vecchio farmacista, il signor Benedetti, a darle la prima pista importante.</p>
+                    
+                    <p>«Tua nonna e Alessandro Marchetti si conoscevano da sempre», disse scuotendo la testa con un sorriso nostalgico. «Lui era pazzo di lei, ma era così timido che non riusciva mai a dirglielo. Quando lei sposò tuo nonno, Alessandro non si sposò mai. Visse tutta la vita da scapolo, dedicandosi alle sue api e al suo giardino.»</p>
+                    
+                    <p>Alessandro Marchetti. "A." come Alessandro. Elena sentì il cuore accelerare. Il signor Benedetti le diede l'indirizzo: una piccola casa gialla ai margini del paese, circondata da alveari e roseti.</p>
+                    
+                    <p>Quando Alessandro aprì la porta, Elena riconobbe immediatamente gli occhi della nonna riflessi nei suoi. Erano della stessa tonalità di azzurro, così rara e particolare.</p>
+                    
+                    <p>«Lei è Elena, la nipote di Rosa», disse il vecchio uomo, senza bisogno di presentazioni. «Ha i suoi stessi occhi.»</p>
+                    
+                    <p>Elena annuì, stringendo al petto la scatola con le lettere. «Credo che queste le appartengano», disse semplicemente.</p>
+                    
+                    <p>Alessandro guardò la scatola e sorrise, un sorriso pieno di malinconia e tenerezza. «Le ha lette?»</p>
+                    
+                    <p>«Sì.»</p>
+                    
+                    <p>«Allora sa tutto. Cinquant'anni di parole mai dette, di occasioni perdute.» Il vecchio invitò Elena a entrare. La casa era piena di fotografie della nonna, scattate da lontano durante le feste del paese, i mercati, le celebrazioni. Un amore vissuto in silenzio, documentato con la discrezione di chi sa di non poter chiedere di più.</p>
+                    
+                    <p>«Perché non gliele ha mai date?» chiese Elena.</p>
+                    
+                    <p>Alessandro si sedette sulla sua vecchia poltrona, accarezzando una fotografia in bianco e nero che ritraeva la nonna da giovane. «Perché era felice. Prima con tuo nonno, poi con i suoi figli, poi con voi nipoti. Chi ero io per turbare la sua serenità con il mio egoismo?»</p>
+                    
+                    <p>Fu in quel momento che alla porta suonò il campanello. Elena andò ad aprire e si trovò davanti un giovane uomo sui trent'anni, alto e dai capelli castani, che portava un mazzo di rose gialle.</p>
+                    
+                    <p>«Scusi», disse il ragazzo, «sto cercando il signor Alessandro Marchetti. Sono Alessandro, suo nipote. Vengo ogni settimana a trovarla.»</p>
+                    
+                    <p>I due Alessandro si abbracciarono con affetto, e Elena si rese conto di quanto fosse strano il destino. Lei, nipote di Rosa, e lui, nipote di Alessandro. Due famiglie che per cinquant'anni erano state legate da un filo invisibile di amore non corrisposto, ora si incontravano attraverso le nuove generazioni.</p>
+                    
+                    <p>«Vuoi che ti mostri le fotografie della nonna Rosa?» chiese Elena ad Alessandro il giovane, indicando gli album sul tavolo.</p>
+                    
+                    <p>«Solo se tu mi permetti di offrirti un caffè e raccontarti la storia del nonno che ha amato in silenzio per tutta la vita», rispose lui sorridendo.</p>
+                    
+                    <p>Elena sorrise a sua volta. Forse, pensò, l'amore non si perdeva mai davvero. Si trasformava, passava di generazione in generazione, trovando sempre un modo per fiorire di nuovo.</p>
+                </div>
+                
+                <div class="modal-story-footer">
+                    <div class="story-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Avatar di Martina Conti">
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Martina Conti</div>
+                            <div class="author-role">Custode di Memorie</div>
+                        </div>
+                    </div>
+                    
+                    <div class="story-social">
+                        <button class="social-button">♥ Mi piace</button>
+                        <button class="social-button">💬 Commenta</button>
+                        <button class="social-button">🔗 Condividi</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <!-- Modal per "Il giardiniere dei sogni" -->
+    <div id="giardiniere-modal" class="story-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeStoryModal('giardiniere')">&times;</button>
+            <article class="modal-story">
+                <div class="modal-story-header">
+                    <h2 class="modal-story-title">Il giardiniere dei sogni</h2>
+                    <span class="modal-story-date">20 Febbraio 2025</span>
+                </div>
+                
+                <div class="modal-story-image">
+                    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Giardino botanico">
+                </div>
+                
+                <div class="modal-story-content">
+                    <p>Nel cuore della città, nascosta dietro un muro di edera e protetta da un vecchio cancello di ferro battuto, esisteva una serra che nessuno sapeva di poter trovare. Era il regno di Matteo, un giovane botanico che aveva dedicato la sua vita a coltivare l'impossibile: orchidee che cambiavano colore con le emozioni, rose che fiorivano solo al chiaro di luna, violette che profumavano di ricordi d'infanzia.</p>
+                    
+                    <p>Ogni mattina, Matteo si svegliava prima dell'alba per prendersi cura delle sue creature vegetali. Parlava loro come fossero vecchi amici, sussurrava segreti alle foglie che si muovevano dolcemente come per rispondergli. La sua serra era un mondo magico, dove la scienza si mescolava alla fantasia e dove ogni fiore raccontava una storia diversa.</p>
+                    
+                    <p>Dall'altra parte della città, in un piccolo atelier pieno di tele e pennelli, Iris dipingeva. Ma non ritratti di persone che conosceva o paesaggi che aveva visto. Iris dipingeva volti che apparivano nei suoi sogni, persone che sembravano reali ma che non aveva mai incontrato nella vita di tutti i giorni. Il suo quadro più ricorrente ritraeva un giovane uomo dai capelli castani e dalle mani delicate, sempre circondato da fiori esotici e luci dorate.</p>
+                    
+                    <p>«Chi è?» le chiedevano spesso gli amici, osservando quel volto che appariva in decine di tele diverse.</p>
+                    
+                    <p>«Non lo so», rispondeva sempre Iris. «Ma lo sogno ogni notte da cinque anni. È come se fosse una persona reale che vive da qualche parte, in attesa che io la trovi.»</p>
+                    
+                    <p>Il destino, che a volte ha un senso dell'umorismo particolare, fece sì che Iris si perdesse proprio quella mattina di primavera. Stava cercando un nuovo posto dove esporre i suoi quadri quando svoltò per una strada che non aveva mai visto prima. Il GPS del telefono non funzionava, le strade sembravano cambiare direzione da sole, e prima che se ne accorgesse, si trovò davanti al cancello della serra di Matteo.</p>
+                    
+                    <p>Il cancello era socchiuso. Iris sentì un profumo dolcissimo che proveniva dall'interno, una fragranza che le ricordava qualcosa di familiare ma che non riusciva a collocare. Spinta dalla curiosità, spinse il cancello ed entrò.</p>
+                    
+                    <p>La serra era ancora più magica di quanto avesse mai immaginato. I raggi del sole filtravano attraverso il vetro creando giochi di luce dorata che danzavano sui petali di centinaia di fiori impossibili. Ma quello che la fece rimanere senza fiato non furono i fiori.</p>
+                    
+                    <p>Al centro della serra, inginocchiato accanto a una orchidea violacea che sembrava brillare di luce propria, c'era lui. L'uomo dei suoi sogni. Lo stesso volto che aveva dipinto mille volte, le stesse mani delicate, la stessa espressione concentrata e gentile.</p>
+                    
+                    <p>Matteo alzò lo sguardo e quando vide Iris rimase immobile, come se avesse visto un fantasma. Anche lei era ferma sulla soglia, con il cuore che batteva così forte che era sicura lui potesse sentirlo.</p>
+                    
+                    <p>«Tu... tu sei...» iniziò Matteo, ma le parole si persero nell'aria profumata della serra.</p>
+                    
+                    <p>Iris si avvicinò lentamente, come in trance. Quando fu abbastanza vicina, notò che l'orchidea accanto a lui aveva dei petali di un colore che non aveva mai visto prima: un viola intenso con sfumature dorate che sembravano dipinte a mano.</p>
+                    
+                    <p>«Come si chiama questo fiore?» chiese con voce tremula.</p>
+                    
+                    <p>Matteo sorrise, e il suo sorriso era esattamente quello che Iris aveva dipinto centinaia di volte nei suoi quadri. «Iris Dorata», disse. «È l'unico esemplare al mondo. L'ho coltivata per cinque anni, ma non è mai fiorita fino a oggi.»</p>
+                    
+                    <p>Iris sentì le lacrime rigarle il viso. «Io... io ti dipingo da cinque anni», sussurrò. «Ogni notte ti sogno, e ogni giorno dipingo il tuo volto. Non sapevo chi fossi, ma sapevo che esistevi da qualche parte.»</p>
+                    
+                    <p>Matteo si alzò lentamente, senza mai distogliere lo sguardo dai suoi occhi. «E io ho coltivato per anni un fiore che porta il tuo nome, senza sapere perché. È come se il mio cuore conoscesse il tuo prima ancora che ci incontrassimo.»</p>
+                    
+                    <p>Si guardarono per quello che sembrò un'eternità, due anime che si riconoscevano dopo essersi cercate per anni nei sogni e nei fiori. Intorno a loro, le piante della serra sembravano fremere di gioia, i petali si facevano più vividi, i profumi più intensi.</p>
+                    
+                    <p>«Pensi che sia possibile», chiese Iris, «che due persone possano essere destinate a incontrarsi attraverso i sogni?»</p>
+                    
+                    <p>Matteo prese delicatamente la sua mano, e quando le loro pelle si toccarono, l'Iris Dorata iniziò a brillare di una luce soffusa e magica.</p>
+                    
+                    <p>«Guarda», disse indicando il fiore. «Credo che sia possibile tutto, quando l'amore è vero. E il nostro, in qualche modo misterioso, lo era già da molto prima che ci incontrassimo.»</p>
+                    
+                    <p>Da quel giorno, Iris trasferì il suo atelier nella serra di Matteo. Dipingeva circondata da fiori impossibili, mentre lui coltivava nuove varietà ispirate dai colori delle sue tele. E l'Iris Dorata continuò a fiorire, testimone silenziosa di un amore che era nato nei sogni e aveva trovato la sua strada verso la realtà.</p>
+                </div>
+                
+                <div class="modal-story-footer">
+                    <div class="story-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b77c?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Avatar di Sofia Bianchi">
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Sofia Bianchi</div>
+                            <div class="author-role">Tessitrice di Sogni</div>
+                        </div>
+                    </div>
+                    
+                    <div class="story-social">
+                        <button class="social-button">♥ Mi piace</button>
+                        <button class="social-button">💬 Commenta</button>
+                        <button class="social-button">🔗 Condividi</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+    
+        <!-- Sezione per scrivere la propria storia -->
+        <section class="write-story-section">
+            <h2 class="write-story-title">✍️ Scrivi la tua storia d'amore</h2>
+            <p class="write-story-description">
+                Hai vissuto una storia d'amore che merita di essere raccontata? Condividila con la nostra comunità! 
+                Ti aiuteremo a trasformare i tuoi ricordi in un racconto indimenticabile.
+            </p>
+
+            <form class="story-form" id="storyForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="authorName">Il tuo nome (o pseudonimo)</label>
+                        <input type="text" id="authorName" name="authorName" placeholder="Come vuoi essere chiamato/a?" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="storyGenre">Genere della storia</label>
+                        <select id="storyGenre" name="storyGenre" required>
+                            <option value="">Seleziona un genere...</option>
+                            <option value="primo-incontro">Primo incontro</option>
+                            <option value="lunga-distanza">Amore a distanza</option>
+                            <option value="ritrovato">Amore ritrovato</option>
+                            <option value="quotidiano">Amore quotidiano</option>
+                            <option value="ostacoli">Amore che supera gli ostacoli</option>
+                            <option value="altro">Altro</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="storyTitle">Titolo della tua storia</label>
+                    <input type="text" id="storyTitle" name="storyTitle" placeholder="Scegli un titolo che catturi l'essenza della vostra storia" required>
+                    <div class="inspiration-buttons">
+                        <button type="button" class="inspiration-btn" data-suggestion="title" data-text="Sotto le stelle di...">Sotto le stelle di...</button>
+                        <button type="button" class="inspiration-btn" data-suggestion="title" data-text="Il giorno che tutto cambiò">Il giorno che tutto cambiò</button>
+                        <button type="button" class="inspiration-btn" data-suggestion="title" data-text="Lettere dal cuore">Lettere dal cuore</button>
+                        <button type="button" class="inspiration-btn" data-suggestion="title" data-text="Un caffè, mille emozioni">Un caffè, mille emozioni</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="storyContent">La tua storia</label>
+                    <textarea id="storyContent" name="storyContent" 
+                              placeholder="Racconta la tua storia... Inizia con calma, un paragrafo alla volta. Ricorda: ogni grande storia d'amore ha iniziato con un momento speciale." 
+                              required></textarea>
+                    <div class="inspiration-buttons">
+                        <button type="button" class="inspiration-btn" data-suggestion="content" data-type="opening">Aiutami con l'inizio</button>
+                        <button type="button" class="inspiration-btn" data-suggestion="content" data-type="dialogue">Aggiungi dialoghi</button>
+                        <button type="button" class="inspiration-btn" data-suggestion="content" data-type="emotions">Descrivi le emozioni</button>
+                        <button type="button" class="inspiration-btn" data-suggestion="content" data-type="ending">Come concludere</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="storyMessage">Messaggio speciale (opzionale)</label>
+                    <textarea id="storyMessage" name="storyMessage" 
+                              placeholder="Vuoi dedicare questa storia a qualcuno? O lasciare un messaggio ai lettori?"></textarea>
+                </div>
+
+                <button type="submit" class="submit-story-btn">📝 Condividi la mia storia</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Modal per commenti -->
+    <div id="commentsModal" class="comments-modal">
+        <div class="comments-content">
+            <h3 class="comments-header">💬 Commenti</h3>
+            <textarea class="comment-input" id="commentInput" placeholder="Scrivi il tuo commento..." rows="3"></textarea>
+            <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                <button class="comment-submit" id="submitComment">Pubblica commento</button>
+                <button class="comment-submit" onclick="closeCommentsModal()" style="background: #ccc; color: #666;">Chiudi</button>
+            </div>
+            <div class="existing-comments" id="commentsList">
+                <!-- I commenti verranno aggiunti qui dinamicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals per le storie -->
+    <div id="veneziaModal" class="story-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeStoryModal('venezia')">&times;</button>
+            <article class="modal-story">
+                <div class="modal-story-header">
+                    <h2 class="modal-story-title">Sussurri a Venezia</h2>
+                    <span class="modal-story-date">8 Aprile 2025</span>
+                </div>
+                
+                <div class="modal-story-image">
+                    <img src="https://images.unsplash.com/photo-1534351590666-13e3e96b5017?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Venezia al tramonto">
+                </div>
+                
+                <div class="modal-story-content">
+                    <p>La nebbia avvolgeva Venezia come un velo di seta grigia, trasformando i canali in specchi opachi che riflettevano le luci soffuse dei lampioni. Luca remava lentamente nella sua gondola, seguendo il ritmo ipnotico dell'acqua che lambiva dolcemente le fondamenta degli antichi palazzi.</p>
+                    
+                    <p>«Non credo più nell'amore», ripeteva spesso agli amici, «è solo una favola che raccontiamo ai turisti mentre li portiamo sotto il Ponte dei Sospiri.»</p>
+                    
+                    <p>Quella sera d'ottobre, però, qualcosa stava per cambiare. Una figura snella si avvicinò al molo dove Luca aveva ormeggiato la sua gondola. Era una donna sui trent'anni, con i capelli castani raccolti in una treccia disordinata e gli occhi rossi di pianto.</p>
+                    
+                    <p>«Posso salire?» chiese con voce tremula. «Ho bisogno di allontanarmi da tutto per un po'.»</p>
+                    
+                    <p>Da quella notte, ogni volta che la nebbia avvolgeva Venezia, Luca e Chiara si ritrovavano su quella gondola. Lei suonava melodie sempre diverse, tutte nate dal loro incontro, e lui, lentamente, iniziò di nuovo a credere che forse l'amore non era solo una favola per turisti...</p>
+                </div>
+                
+                <div class="story-footer">
+                    <div class="story-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Avatar di Elena Rossi">
+                        </div>
+                        <div class="author-info">
+                            <div class="author-name">Elena Rossi</div>
+                            <div class="author-role">Narratrice di Emozioni</div>
+                        </div>
+                    </div>
+                    
+                    <div class="story-social">
+                        <button class="social-button" data-action="like" data-story="venezia">♡ Mi piace</button>
+                        <button class="social-button" data-action="comment" data-story="venezia">💬 Commenta</button>
+                        <button class="social-button" data-action="share" data-story="venezia">🔗 Condividi</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <!-- Modal per altre storie simile struttura -->
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Resta in contatto</h4>
+                <p>Non perdere i nostri aggiornamenti settimanali!</p>
+                <a href="#">📱 Instagram: @TraLePagineDelCuore</a>
+                <a href="#">📱 Facebook: @TraLePagineDelCuore</a>
+                <a href="#">📱 Pinterest: @TraLePagineDelCuore</a>
+            </div>
+            <div class="footer-column">
+                <h4>Sezioni</h4>
+                 <a href="Tra_Le_Pagine_Del_Cuore.html">Home</a>
+                <a href="Storie_Del_Cuore.html">Storie del Cuore</a>
+                <a href="Poesia_D'anima.html">Poesia d'Anima</a>
+                <a href="Spunti_Romantici.html">Spunti Romantici</a>
+                <a href="Emozioni_In_Cucina.html">Emozioni in Cucina</a>
+                <a href="Contatti.html">Contatti</a>
+            </div>
+            <div class="footer-column newsletter">
+                <h4>Newsletter</h4>
+                <p>Ricevi direttamente nella tua casella di posta elettronica i nostri articoli profumati d'amore!</p>
+                <input type="email" placeholder="La tua email" id="newsletterEmail">
+                <button onclick="subscribeNewsletter()">Iscriviti</button>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Con affetto, La redazione di Tra le Pagine del Cuore</p>
+            <p>&copy; 2025 Tra le Pagine del Cuore. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== CLASSE PRINCIPALE PER GESTIRE LA WEBAPP =====
+        class StorieDelCuore {
+            constructor() {
+                this.likeCounts = {
+                    'parigi': 47,
+                    'venezia': 32,
+                    'lettere': 58,
+                    'giardiniere': 41
+                };
+                
+                this.userLikes = new Set();
+                this.currentStoryForComments = '';
+                
+                this.storyComments = {
+                    'parigi': [
+                        { author: 'Maria', text: 'Che storia meravigliosa! Mi ha fatto sognare Parigi.' },
+                        { author: 'Giulia', text: 'Il lucchetto rosso... così romantico! 💕' }
+                    ],
+                    'venezia': [
+                        { author: 'Alessandro', text: 'Da veneziano, posso dire che avete catturato perfettamente l\'atmosfera della nostra città.' }
+                    ],
+                    'lettere': [
+                        { author: 'Anna', text: 'Mi ha commossa fino alle lacrime. L\'amore che attraversa le generazioni.' },
+                        { author: 'Roberto', text: 'Bellissima storia, mi ricorda i miei nonni.' }
+                    ],
+                    'giardiniere': [
+                        { author: 'Francesca', text: 'Magico! Adoro l\'idea dei sogni che diventano realtà.' }
+                    ]
+                };
+                
+                this.writingPrompts = {
+                    opening: [
+                        "Era una di quelle giornate in cui l'aria profumava di possibilità...",
+                        "Non avrei mai immaginato che quel momento avrebbe cambiato tutto...",
+                        "Il destino, a volte, ha un senso dell'umorismo particolare...",
+                        "Quella mattina mi svegliai con una sensazione strana, come se qualcosa di speciale stesse per accadere..."
+                    ],
+                    dialogue: [
+                        '\n\n«Scusa,» disse, «è libero questo posto?»\n«Certo,» risposi sorridendo, senza sapere che quella semplice parola avrebbe aperto la porta al nostro futuro.',
+                        '\n\n«Non ti ho mai vista qui prima,» sussurrò.\n«Forse perché non stavi guardando nel posto giusto,» risposi, sentendo il cuore battere più forte.',
+                        '\n\n«Credi nel destino?» mi chiese improvvisamente.\n«Prima di oggi avrei detto di no,» ammisi. «E ora?»'
+                    ],
+                    emotions: [
+                        '\n\nSentii il cuore accelerare, come se avesse riconosciuto qualcosa che la mia mente non aveva ancora compreso.',
+                        '\n\nFu come se il tempo si fermasse. In quel momento esistevamo solo noi due, sospesi in una bolla di magia.',
+                        '\n\nLe mie mani tremavano leggermente, non per il freddo, ma per l\'emozione di quello che stava nascendo tra noi.'
+                    ],
+                    ending: [
+                        '\n\nE così, quello che era iniziato come un incontro casuale si trasformò in qualcosa di eterno.',
+                        '\n\nOggi, ripensando a quel momento, sorrido. A volte l\'amore arriva quando meno te l\'aspetti.',
+                        '\n\nQuella notte capii che alcune storie sono scritte nelle stelle, aspettando solo il momento giusto per essere vissute.'
+                    ]
+                };
+                
+                this.init();
+            }
+            
+            init() {
+                this.bindEvents();
+                this.setupFormHandlers();
+            }
+            
+            // ===== EVENT BINDING =====
+            bindEvents() {
+                // Social buttons
+                document.querySelectorAll('.social-button').forEach(button => {
+                    button.addEventListener('click', (e) => this.handleSocialAction(e));
+                });
+                
+                // Story cards
+                document.querySelectorAll('.story-card').forEach(card => {
+                    card.addEventListener('click', (e) => {
+                        if (!e.target.closest('.read-more-link')) {
+                            const story = card.dataset.story;
+                            this.openStoryModal(story);
+                        }
+                    });
+                });
+                
+                // Modal close events
+                document.addEventListener('click', (e) => this.handleModalClose(e));
+                document.addEventListener('keydown', (e) => this.handleEscapeKey(e));
+                
+                // Comment submission
+                document.getElementById('submitComment')?.addEventListener('click', () => this.addComment());
+            }
+            
+            // ===== SOCIAL ACTIONS =====
+            handleSocialAction(e) {
+                const button = e.target;
+                const action = button.dataset.action;
+                const story = button.dataset.story;
+                
+                switch(action) {
+                    case 'like':
+                        this.toggleLike(story, button);
+                        break;
+                    case 'comment':
+                        this.openComments(story);
+                        break;
+                    case 'share':
+                        this.shareStory(story);
+                        break;
+                }
+            }
+            
+            toggleLike(storyId, button) {
+                const likeKey = `like-${storyId}`;
+                
+                if (this.userLikes.has(likeKey)) {
+                    // Unlike
+                    this.userLikes.delete(likeKey);
+                    this.likeCounts[storyId]--;
+                    button.innerHTML = '♡ Mi piace';
+                    button.classList.remove('liked');
+                } else {
+                    // Like
+                    this.userLikes.add(likeKey);
+                    this.likeCounts[storyId]++;
+                    button.innerHTML = `❤️ Mi piace (${this.likeCounts[storyId]})`;
+                    button.classList.add('liked');
+                    
+                    // Animazione
+                    button.classList.add('like-animation');
+                    setTimeout(() => button.classList.remove('like-animation'), 600);
+                    
+                    // Effetto cuori
+                    this.createHeartEffect(button);
+                }
+            }
+            
+            createHeartEffect(button) {
+                const hearts = ['💕', '💖', '💗', '💝', '❤️', '💘'];
+                const rect = button.getBoundingClientRect();
+                
+                for (let i = 0; i < 6; i++) {
+                    const heart = document.createElement('div');
+                    heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                    heart.className = 'heart-float';
+                    heart.style.left = (rect.left + Math.random() * rect.width) + 'px';
+                    heart.style.top = (rect.top + Math.random() * rect.height) + 'px';
+                    
+                    document.body.appendChild(heart);
+                    setTimeout(() => heart.remove(), 2000);
+                }
+            }
+            
+            // ===== MODAL MANAGEMENT =====
+            openStoryModal(storyId) {
+                const modal = document.getElementById(`${storyId}Modal`);
+                if (modal) {
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+            
+            closeStoryModal(storyId) {
+                const modal = document.getElementById(`${storyId}Modal`);
+                if (modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            }
+            
+            // ===== COMMENTS =====
+            openComments(storyId) {
+                this.currentStoryForComments = storyId;
+                const modal = document.getElementById('commentsModal');
+                const commentsList = document.getElementById('commentsList');
+                
+                // Carica commenti esistenti
+                this.loadComments(commentsList, storyId);
+                
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            loadComments(container, storyId) {
+                container.innerHTML = '';
+                if (this.storyComments[storyId]) {
+                    this.storyComments[storyId].forEach(comment => {
+                        const commentDiv = document.createElement('div');
+                        commentDiv.className = 'comment-item';
+                        commentDiv.innerHTML = `
+                            <div class="comment-author">${comment.author}</div>
+                            <div class="comment-text">${comment.text}</div>
+                        `;
+                        container.appendChild(commentDiv);
+                    });
+                }
+            }
+            
+            addComment() {
+                const input = document.getElementById('commentInput');
+                const text = input.value.trim();
+                
+                if (!text) {
+                    this.showMessage('Scrivi qualcosa prima di pubblicare! 💕');
+                    return;
+                }
+
+                if (!this.storyComments[this.currentStoryForComments]) {
+                    this.storyComments[this.currentStoryForComments] = [];
+                }
+
+                const newComment = {
+                    author: 'Tu',
+                    text: text
+                };
+
+                this.storyComments[this.currentStoryForComments].unshift(newComment);
+                
+                // Aggiorna la visualizzazione
+                const commentDiv = document.createElement('div');
+                commentDiv.className = 'comment-item';
+                commentDiv.innerHTML = `
+                    <div class="comment-author">${newComment.author}</div>
+                    <div class="comment-text">${newComment.text}</div>
+                `;
+                
+                document.getElementById('commentsList').prepend(commentDiv);
+                input.value = '';
+                
+                this.showMessage('Grazie per il tuo commento! 💕');
+            }
+            
+            closeCommentsModal() {
+                document.getElementById('commentsModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+            
+            // ===== SHARING =====
+            async shareStory(storyId) {
+                const storyTitles = {
+                    'parigi': 'Sotto il cielo di Parigi',
+                    'venezia': 'Sussurri a Venezia',
+                    'lettere': 'Le lettere ritrovate',
+                    'giardiniere': 'Il giardiniere dei sogni'
+                };
+                
+                const title = storyTitles[storyId] || 'Storia del Cuore';
+                
+                if (navigator.share) {
+                    try {
+                        await navigator.share({
+                            title: `${title} - Tra le Pagine del Cuore`,
+                            text: 'Leggi questa bellissima storia d\'amore!',
+                            url: window.location.href
+                        });
+                    } catch (err) {
+                        this.fallbackShare();
+                    }
+                } else {
+                    this.fallbackShare();
+                }
+            }
+            
+            async fallbackShare() {
+                try {
+                    await navigator.clipboard.writeText(window.location.href);
+                    this.showMessage('Link copiato negli appunti! Condividilo con chi vuoi! 💕');
+                } catch (err) {
+                    // Fallback estremo
+                    const tempInput = document.createElement('input');
+                    document.body.appendChild(tempInput);
+                    tempInput.value = window.location.href;
+                    tempInput.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(tempInput);
+                    this.showMessage('Link copiato negli appunti! Condividilo con chi vuoi! 💕');
+                }
+            }
+            
+            // ===== FORM HANDLING =====
+            setupFormHandlers() {
+                // Inspiration buttons
+                document.querySelectorAll('.inspiration-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => this.handleInspiration(e));
+                });
+                
+                // Form submission
+                document.getElementById('storyForm')?.addEventListener('submit', (e) => this.handleStorySubmission(e));
+            }
+            
+            handleInspiration(e) {
+                const button = e.target;
+                const suggestionType = button.dataset.suggestion;
+                
+                if (suggestionType === 'title') {
+                    const text = button.dataset.text;
+                    document.getElementById('storyTitle').value = text;
+                    document.getElementById('storyTitle').focus();
+                } else if (suggestionType === 'content') {
+                    const contentType = button.dataset.type;
+                    this.addContentInspiration(contentType);
+                }
+            }
+            
+            addContentInspiration(type) {
+                const textarea = document.getElementById('storyContent');
+                const suggestions = this.writingPrompts[type];
+                
+                if (suggestions && suggestions.length > 0) {
+                    const randomSuggestion = suggestions[Math.floor(Math.random() * suggestions.length)];
+                    const currentText = textarea.value;
+                    textarea.value = currentText + randomSuggestion;
+                    textarea.focus();
+                    textarea.setSelectionRange(textarea.value.length, textarea.value.length);
+                }
+            }
+            
+            async handleStorySubmission(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(e.target);
+                const storyData = {
+                    author: formData.get('authorName'),
+                    genre: formData.get('storyGenre'),
+                    title: formData.get('storyTitle'),
+                    content: formData.get('storyContent'),
+                    message: formData.get('storyMessage')
+                };
+                
+                // Simula l'invio
+                const submitBtn = document.querySelector('.submit-story-btn');
+                const originalText = submitBtn.textContent;
+                
+                submitBtn.textContent = 'Invio in corso... ✨';
+                submitBtn.disabled = true;
+                
+                try {
+                    // Simula delay di invio
+                    await new Promise(resolve => setTimeout(resolve, 2000));
+                    
+                    this.showMessage(`Grazie ${storyData.author}! La tua storia "${storyData.title}" è stata inviata. La pubblicheremo presto dopo averla letta con cura. 💕`);
+                    e.target.reset();
+                } catch (error) {
+                    this.showMessage('Si è verificato un errore. Riprova più tardi.');
+                } finally {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }
+            }
+            
+            // ===== MODAL CLOSE HANDLERS =====
+            handleModalClose(e) {
+                // Chiudi modals se si clicca fuori dal contenuto
+                if (e.target.classList.contains('story-modal')) {
+                    e.target.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+                
+                if (e.target.classList.contains('comments-modal')) {
+                    this.closeCommentsModal();
+                }
+            }
+            
+            handleEscapeKey(e) {
+                if (e.key === 'Escape') {
+                    const activeModal = document.querySelector('.story-modal.active, .comments-modal.active');
+                    if (activeModal) {
+                        activeModal.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
+                }
+            }
+
+            
+            
+            // ===== UTILITY METHODS =====
+            showMessage(message) {
+                // Mostra un messaggio temporaneo
+                const messageDiv = document.createElement('div');
+                messageDiv.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: var(--primary-color);
+                    color: white;
+                    padding: 15px 20px;
+                    border-radius: 10px;
+                    z-index: 10000;
+                    font-weight: 500;
+                    box-shadow: 0 4px 12px rgba(232, 62, 140, 0.3);
+                    animation: slideInRight 0.3s ease-out;
+                `;
+                messageDiv.textContent = message;
+                
+                document.body.appendChild(messageDiv);
+                
+                setTimeout(() => {
+                    messageDiv.style.animation = 'slideOutRight 0.3s ease-in forwards';
+                    setTimeout(() => messageDiv.remove(), 300);
+                }, 3000);
+            }
+        }
+        
+        // ===== GLOBAL FUNCTIONS (per compatibilità con onClick inline) =====
+        function closeStoryModal(storyId) {
+            app.closeStoryModal(storyId);
+        }
+        
+        function closeCommentsModal() {
+            app.closeCommentsModal();
+        }
+        
+        function subscribeNewsletter() {
+            const email = document.getElementById('newsletterEmail').value.trim();
+            if (!email) {
+                app.showMessage('Inserisci una email valida!');
+                return;
+            }
+            
+            if (!email.includes('@')) {
+                app.showMessage('Inserisci una email valida!');
+                return;
+            }
+            
+            app.showMessage('Grazie per esserti iscritto/a alla nostra newsletter! 💕');
+            document.getElementById('newsletterEmail').value = '';
+        }
+        
+        // ===== CSS ANIMATIONS (aggiunte via JavaScript) =====
+        const additionalStyles = document.createElement('style');
+        additionalStyles.textContent = `
+            @keyframes slideInRight {
+                from {
+                    opacity: 0;
+                    transform: translateX(100px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            
+            @keyframes slideOutRight {
+                from {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+                to {
+                    opacity: 0;
+                    transform: translateX(100px);
+                }
+            }
+            
+            /* Smooth scroll per gli anchor links */
+            html {
+                scroll-behavior: smooth;
+            }
+            
+            /* Loading state per i bottoni */
+            .submit-story-btn:disabled {
+                opacity: 0.7;
+                transform: none !important;
+                cursor: not-allowed;
+            }
+            
+            /* Miglioramenti per l'accessibilità */
+            .social-button:focus,
+            .inspiration-btn:focus,
+            .submit-story-btn:focus,
+            .comment-submit:focus {
+                outline: 2px solid var(--primary-color);
+                outline-offset: 2px;
+            }
+            
+            /* Hover effect migliorato per le card */
+            .story-card {
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .story-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+                transition: left 0.5s;
+                z-index: 1;
+            }
+            
+            .story-card:hover::before {
+                left: 100%;
+            }
+            
+            /* Miglioramenti per mobile */
+            @media (max-width: 768px) {
+                .story-social {
+                    flex-wrap: wrap;
+                    gap: 8px;
+                }
+                
+                .social-button {
+                    flex: 1;
+                    min-width: 100px;
+                    text-align: center;
+                }
+            }
+            
+            /* Effetti di transizione più fluidi */
+            * {
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            
+            /* Stili per il focus dei form */
+            .form-group input:focus,
+            .form-group textarea:focus,
+            .form-group select:focus {
+                transform: scale(1.02);
+            }
+            
+            /* Animazione per i modals */
+            @keyframes modalBackdropFadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            
+            .story-modal.active,
+            .comments-modal.active {
+                animation: modalBackdropFadeIn 0.3s ease-out;
+            }
+        `;
+        document.head.appendChild(additionalStyles);
+        
+        // ===== INIZIALIZZAZIONE APP =====
+        let app;
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            app = new StorieDelCuore();
+            
+            // Aggiungi indicatori di caricamento migliorati
+            document.querySelectorAll('img').forEach(img => {
+                img.addEventListener('load', function() {
+                    this.style.opacity = '1';
+                });
+                
+                img.addEventListener('error', function() {
+                    this.style.backgroundColor = '#f0f0f0';
+                    this.style.display = 'flex';
+                    this.style.alignItems = 'center';
+                    this.style.justifyContent = 'center';
+                    this.textContent = '🖼️ Immagine non disponibile';
+                });
+            });
+            
+            // Lazy loading per le immagini (se supportato)
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            if (img.dataset.src) {
+                                img.src = img.dataset.src;
+                                img.removeAttribute('data-src');
+                            }
+                            observer.unobserve(img);
+                        }
+                    });
+                });
+
+                document.querySelectorAll('img[data-src]').forEach(img => {
+                    imageObserver.observe(img);
+                });
+            }
+            
+            // Smooth scroll per i link di navigazione
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Performance: precarica i modals
+            setTimeout(() => {
+                const modals = document.querySelectorAll('.story-modal');
+                modals.forEach(modal => {
+                    const images = modal.querySelectorAll('img');
+                    images.forEach(img => {
+                        if (img.src) {
+                            const link = document.createElement('link');
+                            link.rel = 'preload';
+                            link.href = img.src;
+                            link.as = 'image';
+                            document.head.appendChild(link);
+                        }
+                    });
+                });
+            }, 2000);
+            
+            console.log('🌹 Tra le Pagine del Cuore - App inizializzata con successo!');
+        });
+        
+        // ===== SERVICE WORKER (per PWA - opzionale) =====
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                // Potresti registrare un service worker qui per funzionalità offline
+                console.log('Service Worker supportato - pronto per PWA');
+            });
+        }
+
+            function openStoryModal(storyId) {
+            document.getElementById(storyId + '-modal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Previene lo scroll del body
+        }
+
+        function closeStoryModal(storyId) {
+            document.getElementById(storyId + '-modal').classList.remove('active');
+            document.body.style.overflow = 'auto'; // Ripristina lo scroll del body
+        }
+
+        // Chiude il modal se si clicca fuori dal contenuto
+        document.addEventListener('click', function(event) {
+            const modals = document.querySelectorAll('.story-modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // Chiude il modal premendo ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const activeModal = document.querySelector('.story-modal.active');
+                if (activeModal) {
+                    activeModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
